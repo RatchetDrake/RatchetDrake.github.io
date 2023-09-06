@@ -57,4 +57,4 @@ function horloge() {
         temps2 = temps2 - 1
         console.log(temps2)
     }
-}
+}  
