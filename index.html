@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,140 @@
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js"></script>
 </head>
+
 <body>
-    <p>Bonjour je suis de bonne humeur !</p>
+    <p>Bonjour je suis de bonne humour !</p>
+    <table>
+        <!-- le tr sert à rajouter des lignes à mon tableau-->
+        <tr>
+            <!--les th et td ont le même rôle ajouté des colonnes sur ma ligne 
+                sauf que le th est en gras alors que le td non-->
+            <th>Lieu</th>
+            <td>Auboué</td>
+        </tr>
+        <tr>
+            <td>Salle</td>
+            <td>N°2</td>
+        </tr>
+    </table><br><br><br>
+    <table>
+        <tr>
+            <th class="1">Name</th>
+            <th class="1">Age</th>
+            <th class="1">Country</th>
+        </tr>
+        <tr>
+            <td>Harry Depp</td>
+            <td class="chiffre">28</td>
+            <td>Britain</td>
+        </tr>
+        <tr>
+            <td>John Smith</td>
+            <td class="chiffre">35</td>
+            <td>USA</td>
+        </tr>
+        <tr>
+            <td>Ram Krishna</td>
+            <td class="chiffre">19</td>
+            <td>Nepal</td>
+        </tr>
+
+    </table>
+    <br><br>
+    <table>
+        <tr>
+            <td>Pays</td>
+            <td>Nationalité</td>
+        </tr>
+        <tr>
+            <td colspan="2">France</td>
+        </tr>
+        <tr>
+            <td colspan="2">Belgique</td>
+        </tr>
+    </table>
+    <br><br><br>
+    <table>
+        <tr>
+            <th colspan="2">Language and framworks</th>
+        </tr>
+        <tr>
+            <td>Python</td>
+            <td>Django</td>
+        </tr>
+        <tr>
+            <td>Javascript</td>
+            <td>Rect.js</td>
+        </tr>
+        <tr>
+            <td>Ruby</td>
+            <td>Ruby on Rails</td>
+        </tr>
+    </table>
+    <br><br><br>
+    <table>
+        <tr>
+            <td rowspan="3">Pays</td>
+            <td colspan="2">Francophone</td>
+            <td colspan="2">Autre</td>
+        </tr>
+        <tr>
+            <td>France</td>
+            <td>Belgique</td>
+            <td>Allemagne</td>
+            <td>Espagne</td>
+        </tr>
+        <tr>
+            <td colspan="2">Suisse</td>
+            <td colspan="2">Italie</td>
+        </tr>
+
+    </table>
+    <br><br><br>
+    <table>
+        <tr>
+            <th colspan="6">Time Table</th>
+        </tr>
+        <tr>
+            <th rowspan="6">Hours</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Arts</td>
+        </tr>
+        <tr>
+            <td>Social</td>
+            <td>History</td>
+            <td>English</td>
+            <td>Social</td>
+            <td>Sports</td>
+        </tr>
+        <tr>
+            <th colspan="5">Lunch</th>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td rowspan="2">Projet</td>
+        </tr>
+    <tr>
+        <td>Social</td>
+        <td>History</td>
+        <td>English</td>
+        <td>Social</td>
+    </tr>
+        <tr></tr>
+    </table>
 </body>
-</html>    
+
+</html>
