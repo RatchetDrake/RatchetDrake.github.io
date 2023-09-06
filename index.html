@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cours HTML</title>
     <link rel="stylesheet" href="./style.css">
-    
-    
+
+
 </head>
 
 <body onload="onload">
@@ -135,15 +135,39 @@
             <td>Maths</td>
             <td rowspan="2">Projet</td>
         </tr>
-    <tr>
-        <td>Social</td>
-        <td>History</td>
-        <td>English</td>
-        <td>Social</td>
-    </tr>
+        <tr>
+            <td>Social</td>
+            <td>History</td>
+            <td>English</td>
+            <td>Social</td>
+        </tr>
         <tr></tr>
     </table>
-    <p id="animal">TEST</p>
+    <p id="animal">Chien</p>
+    <form action="">
+        <label for="Name" class="texte">Nom</label>
+        <input type="text" name="name" id="name">
+        <br><br>
+        <label for="prenom" class="texte">Prénom</label>
+        <input type="text" name="prenom" id="prenom">
+        <br><br>
+        <label for="age" class="texte">Age</label>
+        <input type="number" name="age" id="age">
+        <br><br>
+        <input type="radio" name="sexe"id="">
+        <label for="masculin" class="texte">Masculin</label>
+        <br><br>
+        <input type="radio"name="sexe" id="feminin" >
+        <label for="feminin" class="texte">Feminin</label>
+        <br><br>
+        <input type="radio"name="sexe" id="autruche" >
+        <label for="autruce" class="texte">Autruche</label>
+        <br><br>
+        <input type="checkbox" name="me" id="me">
+        <label for="me"class="texte">Je suis moi</label>
+        <br><br>
+        <input type="submit"value="Envoyer !" >
+    </form>
     <script src="./script.js"></script>
 </body>
 
