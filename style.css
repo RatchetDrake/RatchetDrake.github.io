@@ -1,1 +1,26 @@
- 
+ tr,
+ td,
+ table {
+     border: 1px solid black;
+     background-color: white;
+
+ }
+
+ th {
+     background-color: red;
+     color: gold;
+
+ }
+
+ .chiffre {
+     color: red;
+     background-color: gray;
+
+ }
+ body{
+    background-color: black;
+ }
+ p{
+    color: red;
+ }
+ tr td {text-align: center;}
