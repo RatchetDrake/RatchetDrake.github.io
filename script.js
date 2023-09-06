@@ -79,6 +79,13 @@ console.log(Chmilblik)
 console.log(Chmilblik, length)
 
 // document.getElementById("animal").innerHTML = "Autruche"
+let animal = "Autruche"
+let temp = ""
 document.getElementById("animal").addEventListener('click', function () {
-    document.getElementById("animal").innerHTML = "Autruche"
+    // Je regarde le texte qui cetrouve dans cet élement
+    temp = document.getElementById("animal").innerHTML 
+// Je modifie le texte qui ce trouve dans cet élément par la valeur
+// de la variable animal
+    document.getElementById("animal").innerHTML= animal
+    animal= temp
 })
