@@ -55,6 +55,30 @@ var temps2 = 51
 function horloge() {
     if (temps2 >= 1) {
         temps2 = temps2 - 1
-        console.log(temps2)
+        // console.log(temps2)
     }
-}  
+}
+// Array = tableau
+// Type de variable qui est elle même un tableau
+var tab = [10, "bonjour", 7.5, null]
+// Cette variable est un tableau qui contient 4 valeurs dans l'ordre
+// 10
+// "bonjour"
+// 7.5
+// null
+console.log(tab[1])
+// On affiche la valeur qui ce trouve à la position 1 qui est "bonjour"
+console.log(tab[3])
+// on affice la valeur qui ce trouve à la position 3 qui est null
+
+// je voudrais un tableau qui ce nomme Chmilblik qui comporte 5 
+// valeur de type string et 5 valeur de type int ou float
+
+var Chmilblik = ["chien", "chat", "hamster", "autruche", "rats", 2, 5, 7, 8, 10]
+console.log(Chmilblik)
+console.log(Chmilblik, length)
+
+// document.getElementById("animal").innerHTML = "Autruche"
+document.getElementById("animal").addEventListener('click', function () {
+    document.getElementById("animal").innerHTML = "Autruche"
+})
