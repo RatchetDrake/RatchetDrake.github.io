@@ -61,4 +61,6 @@
  }
  #animal:hover{
  cursor: pointer}
- 
+ .texte {
+    color: blue;
+ }
