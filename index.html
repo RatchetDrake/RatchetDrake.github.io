@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cours HTML</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+    
+    
 </head>
 
-<body>
+<body onload="onload">
     <p>Bonjour je suis de bonne humour !</p>
     <table>
         <!-- le tr sert à rajouter des lignes à mon tableau-->
@@ -50,8 +51,8 @@
     <br><br>
     <table>
         <tr>
-            <td>Pays</td>
-            <td>Nationalité</td>
+            <td class="Pays">Pays</td>
+            <td class="Natio">Nationalité</td>
         </tr>
         <tr>
             <td colspan="2">France</td>
@@ -81,7 +82,7 @@
     <br><br><br>
     <table>
         <tr>
-            <td rowspan="3">Pays</td>
+            <td rowspan="3" class="Pays">Pays</td>
             <td colspan="2">Francophone</td>
             <td colspan="2">Autre</td>
         </tr>
@@ -98,12 +99,12 @@
 
     </table>
     <br><br><br>
-    <table>
+    <table class="bonjour">
         <tr>
-            <th colspan="6">Time Table</th>
+            <th colspan="6" class="rond">Time Table</th>
         </tr>
         <tr>
-            <th rowspan="6">Hours</th>
+            <th rowspan="6" class="rond">Hours</th>
             <th>Mon</th>
             <th>Tue</th>
             <th>Wed</th>
@@ -142,6 +143,8 @@
     </tr>
         <tr></tr>
     </table>
+    <p id="animal">TEST</p>
+    <script src="./script.js"></script>
 </body>
 
 </html>
