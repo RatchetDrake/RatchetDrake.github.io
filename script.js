@@ -21,8 +21,8 @@ var Ventilo = null
 // j'ai créer une variable avec le nom Ventilo
 // Avec comme valeur null qui est rien du tout
 //le type est null
-let Phrase = "J'aime l'" + Autruche + 
-" mais pas les " + Perche
+let Phrase = "J'aime l'" + Autruche +
+    " mais pas les " + Perche
 // J'aime l'Animal mais pas le Poissons
 //j'ai concaténer les chaines de caractères 
 // et les variables
@@ -37,7 +37,7 @@ var temps = 1
 function horloge() {
     // Si temps est plus petit ou égale à 10 on éxécute l'addition
     // et le console.log sinon rien
-    if (temps <= 10){ //<,>,<=,>=,==,!=
+    if (temps <= 10) { //<,>,<=,>=,==,!=
         temps = temps + 1
         // temps ++ // temps --
         // temps += 1 // temp -=
@@ -45,7 +45,7 @@ function horloge() {
         console.log(temps)
 
     }
-   
+
 }
 setInterval(horloge, 2000)
 
@@ -53,7 +53,7 @@ setInterval(horloge, 2000)
 // et qui fini à 0 et qui descend toutes les 2 secondes
 var temps2 = 51
 function horloge() {
-    if(temps2 >= 1){
+    if (temps2 >= 1) {
         temps2 = temps2 - 1
         console.log(temps2)
     }
