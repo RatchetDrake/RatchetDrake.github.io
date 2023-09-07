@@ -59,6 +59,7 @@ function horloge() {
     }
 }
 // Array = tableau
+//  C'est un tableau indexer
 // Type de variable qui est elle même un tableau
 var tab = [10, "bonjour", 7.5, null]
 // Cette variable est un tableau qui contient 4 valeurs dans l'ordre
@@ -83,9 +84,67 @@ let animal = "Autruche"
 let temp = ""
 document.getElementById("animal").addEventListener('click', function () {
     // Je regarde le texte qui cetrouve dans cet élement
-    temp = document.getElementById("animal").innerHTML 
-// Je modifie le texte qui ce trouve dans cet élément par la valeur
-// de la variable animal
-    document.getElementById("animal").innerHTML= animal
-    animal= temp
-}) 
+    temp = document.getElementById("animal").innerHTML
+    // Je modifie le texte qui ce trouve dans cet élément par la valeur
+    // de la variable animal
+    document.getElementById("animal").innerHTML = animal
+    animal = temp
+})
+while (false) { } //Tandis que ce qu'il ce trouve dans les parenthèses
+// est vrai elle tourne
+for (var i = 0; i <= 10; i++) {
+    //Je défini une variable i qui s'incrément de 1 tout les tours
+    // de la boucle grâce à i++
+    //et je lui demande de tourner jusqu'a ce que i
+    // soit supériur à 10
+    console.log(i)
+}
+for (var i = 0; i < Chmilblik.length; i++) {
+    console.log(Chmilblik[i])
+    if (i == 3) {
+        break
+    }
+}
+do {
+
+    console.log('BONJOUR')
+    //Elle s'exécutre une fois même si la condition est fausse
+    //et elle continue de s'éécuter si la condition est vrai
+}
+while (false);
+for (index in Chmilblik) {
+    console.log(index)
+}
+//tableau associatif 
+var tab_assoc = { "ami": "Chien", "cafe": "Caféine" }
+for (index in tab_assoc) {
+    console.log(index)
+}
+for (var i = 10; i >= 0; i--) {
+    // console.log( 'il reste',i, 'ligne(s) à écrire')
+    console.log(`il reste ${i} ligne${i <= 1 ? '' : 's'} à écrire`)
+}
+//if(i<=1){
+//si vrai
+//  console.log('')
+//}else{// Sinon faux
+//console.log('s')
+//}
+function diviseur(n) {
+    var i = 2;
+    var temp = '1';
+    while (i <= n) {
+        if (n % i == 0) {
+            temp = temp + ',' + i;
+        }
+        i++;
+    }
+    return temp
+}
+
+
+//for (let index = 1; i <= 100; index++) {
+ //   console.log(`les diviseurs de ${index} sont :${diviseur(index)}`)
+//}
+
+
