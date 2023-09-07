@@ -14,7 +14,7 @@
  th {
      background-color: red;
      color: gold;
-    
+
  }
 
  .chiffre {
@@ -59,8 +59,92 @@
  .Natio {
      background-color: green;
  }
- #animal:hover{
- cursor: pointer}
+
+ #animal:hover {
+     cursor: pointer
+ }
+
  .texte {
-    color: blue;
+     color: blue;
+ }
+
+ .texte2 {
+     color: red;
+ }
+
+ .texte3 {
+     color: greenyellow;
+ }
+
+ .texte4 {
+     color: cyan;
+ }
+
+ #Fname,
+ #Lname,
+ #E-mail {
+     background-color: aquamarine;
+ }
+
+ input[type="submit"],
+ input[type="reset"] {
+     font-size: larger;
+     background-color: blue;
+     border-radius: 0%;
+
+ }
+
+ #message {
+     resize: none;
+     background-color: aqua;
+     border: 10px solid green;
+ }
+
+ ::placeholder {
+     font-size: 30px;
+     color: firebrick;
+ }
+
+ .Field {
+     width: 400px;
+     background-color: rgb(1, 66, 41);
+ }
+
+ #PressButton,
+ #PressButton2 {
+     background-color: chartreuse;
+ }
+/* hj créer une animation qui ce nomme animationimg au début elle va transformer scaleX en -1 puis elle va transform scaleX en 1 et à la fin elle va transform scale en -1 */
+ @keyframes animationimg {
+     0% {
+         transform: scaleX(-1);
+     }
+     50%{
+        transform: scaleX(1);
+     }
+
+     100% {
+         transform: scaleX(-1);
+     }
+     
+ }
+
+ .img1 {
+     border: 4px dashed red;
+     border-radius: 25px;
+     opacity: 50%;
+     height: 30%;
+     /* height:auto; max-width: 100% */
+     max-width: 30%;
+     /* je rend mon image récursive/responsive */
+     filter: blur(1px);
+     filter: contrast(200%);
+     filter: saturate(200%);
+     animation: animationimg 1s ease-in infinite;
+     /* je dit que l'élément img joue l'animation =img qu'elle doit durée
+     1.5s en fonctionnement en ease-in et elle joue ce nombre une fini de fois */
+ }
+
+ img:hover {
+     transform: scaleX(-1);
  }
