@@ -88,4 +88,4 @@ document.getElementById("animal").addEventListener('click', function () {
 // de la variable animal
     document.getElementById("animal").innerHTML= animal
     animal= temp
-})
+}) 
