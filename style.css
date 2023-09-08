@@ -1,7 +1,7 @@
  tr,
  td,
  table {
-     border: 1px solid black;
+     border: 1px solid red;
      font-family: fantasy;
      font-style: oblique;
      text-align: center;
@@ -24,11 +24,11 @@
  }
 
  body {
-     background-color: black;
+     background-color: red;
  }
 
  p {
-     color: red;
+     color: black;
  }
 
  tr td {
@@ -65,11 +65,11 @@
  }
 
  .texte {
-     color: blue;
+     color: black;
  }
 
  .texte2 {
-     color: red;
+     color: black;
  }
 
  .texte3 {

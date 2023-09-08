@@ -175,7 +175,57 @@ for ($i=0; $i<0 ; $i++) {
 
 
     ?>
-    <form action=""></form>
+    <form action="" method="post">
+        <h2>Register</h2>
+    <label for="FName" class="texte">First name:<br> </label>
+        <input type="text" name="Fname" id="Fname">
+        <br><br>
+        <label for="LName" class="texte">Last name: <br></label>
+        <input type="text" name="prenom" id="prenom">
+        <br><br>
+        <label for="E-mail" class="texte3">E-mail:<br></label>
+            <input type="email" name="E-mail" id="E-mail">
+        <br><br>
+        <label for="password" class="texte3">Password :<br></label>
+            <input type="password" name="Password" id="Password">
+        <br><br>
+        <label for="Cpassword" class="texte3"> Confirm password :<br></label>
+            <input type="password" name="CPassword" id="CPassword">
+        <br>
+        <p>Gender:</p>
+        <input type="radio" name="sexe" id="Male"value="Male" >
+        <label for="Male" class="texte">Male</label>
     
+        <input type="radio" name="sexe" id="Female"value="Female">
+        <label for="Female" class="texte">Female</label>
+    
+        <input type="radio" name="sexe" id="Other" value="Other">
+        <label for="Other" class="texte">Other</label>
+    <br>
+        <input type="submit" value="Submit">
+    </form>
+    <?php
+    //Si method post rentrer dans le formulaire il faut
+    // utiliser $_POST
+    //Sinon si la method get est rentrer dans le formulaire il 
+    // faut utilsier $_GET
+    // la fonction isset sert à regarder si la variable qui lui 
+    // est donner est bien défini dans ce cas si elle regarde
+    // si la variable  $_POST est défini
+    if(isset($_POST) && !empty($_POST)){ // $_GET
+        echo'<pre>'; var_dump($_POST); echo'</pre>';
+        echo $_POST['Fname'] . "<br>";
+        // Sha1 Hash ke mot c'est à dire
+        // le compléxifi et le rend ilisible
+        // Sha1 / md5
+        echo sha1($_POST['password']). "<br>";
+        echo md5($_POST['password']). "<br>";
+    }
+    
+    
+    
+    
+    
+    ?>
 </body>
 </html>
