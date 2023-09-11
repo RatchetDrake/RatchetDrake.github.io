@@ -1,3 +1,12 @@
+<?php
+    $bdd =new PDO('mysql:host=localhost;dbname=cours;charset=utf8;','RatchetDrake','Azerty' )
+    
+
+
+?>
+    
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -177,31 +186,31 @@ for ($i=0; $i<0 ; $i++) {
     ?>
     <form action="" method="post">
         <h2>Register</h2>
-    <label for="FName" class="texte">First name:<br> </label>
+    <label for="Fname" class="texte">First name:<br> </label>
         <input type="text" name="Fname" id="Fname">
         <br><br>
-        <label for="LName" class="texte">Last name: <br></label>
-        <input type="text" name="prenom" id="prenom">
+        <label for="Lname" class="texte">Last name: <br></label>
+        <input type="text" name="Lname" id="Lname">
         <br><br>
-        <label for="E-mail" class="texte3">E-mail:<br></label>
-            <input type="email" name="E-mail" id="E-mail">
+        <label for="email" class="texte3">E-mail:<br></label>
+            <input type="email" name="email" id="email">
         <br><br>
         <label for="password" class="texte3">Password :<br></label>
-            <input type="password" name="Password" id="Password">
+            <input type="password" name="password" id="password">
         <br><br>
-        <label for="Cpassword" class="texte3"> Confirm password :<br></label>
-            <input type="password" name="CPassword" id="CPassword">
+        <label for="password" class="texte3"> Confirm password :<br></label>
+            <input type="password" name="password" id="password">
         <br>
         <p>Gender:</p>
-        <input type="radio" name="sexe" id="Male"value="Male" >
+        <input type="radio" name="gender" id="Male"value="Male" >
         <label for="Male" class="texte">Male</label>
     
-        <input type="radio" name="sexe" id="Female"value="Female">
+        <input type="radio" name="gender" id="Female"value="Female">
         <label for="Female" class="texte">Female</label>
     
-        <input type="radio" name="sexe" id="Other" value="Other">
+        <input type="radio" name="gender" id="Other" value="Other">
         <label for="Other" class="texte">Other</label>
-    <br>
+    <br><br><br>
         <input type="submit" value="Submit">
     </form>
     <?php
@@ -220,7 +229,34 @@ for ($i=0; $i<0 ; $i++) {
         // Sha1 / md5
         echo sha1($_POST['password']). "<br>";
         echo md5($_POST['password']). "<br>";
-    }
+
+
+        $insert =$bdd->prepare('INSERT INTO utilisateur(
+        firstname,
+        lastname,
+        email,
+        password,
+        gender)VALUES (?,?,?,?,?)');
+        $insert->execute(array($_POST['Fname'],
+        $_POST['Lname'],
+        $_POST['email'],
+        md5($_POST['password']),
+        $_POST['gender']));
+        
+
+
+    }// je prépare ma commande
+    $select = $bdd->prepare('SELECT * FROM utilisateur WHERE gender= ? ;');
+    // Je l'execture en lui donnant une valeur à la place des ?
+    $select->execute(array('female'));
+    // je récupére tout ce que le renvoir ma commande
+    $total = $select->fetchALL(PDO:: FETCH_ASSOC);
+    // Je l'affiche
+    echo '<pre>';
+    var_dump($total);
+    echo '</pre>';
+
+    echo $total[8]('gender');
     
     
     
