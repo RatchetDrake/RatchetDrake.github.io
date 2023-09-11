@@ -181,10 +181,10 @@ for ($i=0; $i<0 ; $i++) {
         };
 
 
+?>
 
 
-    ?>
-    <form action="" method="post">
+    <form action="validation.php" method="post">
         <h2>Register</h2>
     <label for="Fname" class="texte">First name:<br> </label>
         <input type="text" name="Fname" id="Fname">
@@ -211,57 +211,61 @@ for ($i=0; $i<0 ; $i++) {
         <input type="radio" name="gender" id="Other" value="Other">
         <label for="Other" class="texte">Other</label>
     <br><br><br>
+        <input type="submit" value="Submit"><br><br><br><br><br>
+ </form> 
+
+
+
+
+    <fieldset class="Field">
+    <form action="" method="post">        
+    
+    <label for="Yname" class="texte">Your name<br> </label>
+        <input type="text" name="Yname" id="Yname">
+        <br><br>
+    
+        <label for="Ymail" class="texte3">Your mail:<br></label>
+            <input type="email" name="Ymail" id="Ymail">
+        <br><br>
+        <label for="Ymessage" class="texte3">Your message<br></label>
+        <textarea name="Ymessage" id="Ymessage" cols="30" rows="10"></textarea>
+        <br><br>
+        <label for="number" class="texte3">Give me a number !<br></label>
+            <input type="text" name="number" id="number">
+       
+        <br><br>
         <input type="submit" value="Submit">
+
+       
     </form>
-    <?php
-    //Si method post rentrer dans le formulaire il faut
-    // utiliser $_POST
-    //Sinon si la method get est rentrer dans le formulaire il 
-    // faut utilsier $_GET
-    // la fonction isset sert à regarder si la variable qui lui 
-    // est donner est bien défini dans ce cas si elle regarde
-    // si la variable  $_POST est défini
+    </fieldset>
+    
+
+    <?php 
     if(isset($_POST) && !empty($_POST)){ // $_GET
-        echo'<pre>'; var_dump($_POST); echo'</pre>';
-        echo $_POST['Fname'] . "<br>";
-        // Sha1 Hash ke mot c'est à dire
-        // le compléxifi et le rend ilisible
-        // Sha1 / md5
-        echo sha1($_POST['password']). "<br>";
-        echo md5($_POST['password']). "<br>";
-
-
-        $insert =$bdd->prepare('INSERT INTO utilisateur(
-        firstname,
-        lastname,
-        email,
-        password,
-        gender)VALUES (?,?,?,?,?)');
-        $insert->execute(array($_POST['Fname'],
-        $_POST['Lname'],
-        $_POST['email'],
-        md5($_POST['password']),
-        $_POST['gender']));
         
-
-
-    }// je prépare ma commande
-    $select = $bdd->prepare('SELECT * FROM utilisateur WHERE gender= ? ;');
-    // Je l'execture en lui donnant une valeur à la place des ?
-    $select->execute(array('female'));
-    // je récupére tout ce que le renvoir ma commande
-    $total = $select->fetchALL(PDO:: FETCH_ASSOC);
-    // Je l'affiche
-    echo '<pre>';
-    var_dump($total);
-    echo '</pre>';
-
-    echo $total[8]('gender');
+        $insert =$bdd->prepare('INSERT INTO exo(
+        Yname,
+        Ymail,
+        Ymessage,
+        number)VALUES (?,?,?,?)');
+        $insert->execute(array($_POST['Yname'],
+        $_POST['Ymail'],
+        $_POST['Ymessage'],
+        $_POST['number']));
+        echo ($_POST['number']). "<br>";
+}
+    
+    
+    
+    
+    
     
     
     
     
     
     ?>
+    
 </body>
 </html>
