@@ -1,4 +1,5 @@
 <?php
+require_once('db.php');
     //Si method post rentrer dans le formulaire il faut
     // utiliser $_POST
     //Sinon si la method get est rentrer dans le formulaire il 
@@ -28,7 +29,7 @@
         md5($_POST['password']),
         $_POST['gender'])); 
         
-
+        header('Location: index.php');
 
     }
     // je prépare ma commande
@@ -43,3 +44,4 @@
     echo '</pre>';
 
     echo $total[8]('gender');
+   

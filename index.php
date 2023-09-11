@@ -1,8 +1,5 @@
 <?php
-    $bdd =new PDO('mysql:host=localhost;dbname=cours;charset=utf8;','RatchetDrake','Azerty' )
-    
-
-
+require_once('db.php');
 ?>
     
 
@@ -254,7 +251,17 @@ for ($i=0; $i<0 ; $i++) {
         $_POST['Ymessage'],
         $_POST['number']));
         echo ($_POST['number']). "<br>";
+        
 }
+if(isset($_POST) && !empty($_POST)){
+    settype($_POST['number'],'integer');}
+    //$newmessage = $bdd->prepare('INSERT INTO messages(name,mail,message,number)VALUES (?,?,?,?)')
+    //$newmessage -> execute(array(
+     //   $_POST('name'),
+    //    $_POST('mail'),
+    //$_POST('message'),
+    //$_POST('number')
+    //));
     
     
     

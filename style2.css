@@ -1,0 +1,37 @@
+.test {
+    color: blue;
+}
+
+fieldset {
+    width: 10px;
+}
+
+.conteneur {
+    background-color: black;
+    width: 100%;
+    height: 200px; /*Prend tout la largeure de la page*/
+    display: flex; /* l'affichage se met en mode flex*/
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.rouge {
+    background-color: red;
+    width: 10%;
+    height: 100px;
+ 
+}
+
+.vert {
+    background-color: green;
+    width: 10%;
+    height: 100px;
+}
+
+.orange {
+    background-color: orange;
+    width: 10%;
+    height: 100px;
+}
