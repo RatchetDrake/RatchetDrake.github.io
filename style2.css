@@ -319,5 +319,9 @@ justify-content: center; /*largeur*/
    align-items: center;
    margin-top: -5%;
 }
+#minuteur {
+    font-size: 6em;
+    font-family: fantasy;
+}
 
 
