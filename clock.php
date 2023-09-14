@@ -111,6 +111,9 @@ date_default_timezone_set('Europe/Paris');
         interval = null
         document.getElementById("minuteur").style.textDecoration ="red wavy underline"
     }
+    function ResetTimer(){
+        clear
+    }
     document.getElemenById("play").addEventListenner("click",function(){
         if(interval ==null){
            interval = setInterval(timer,1000)
