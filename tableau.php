@@ -19,7 +19,7 @@
            
         <tr>
             <td class="noire">1</td>
-            <td colspan="2"><img src="./image/usa.png"> USA</td>
+            <td class="npays"colspan="2"><img src="./image/usa.png"> USA</td>
             <td class="blanc" >46</td>
             <td class="blanc">37</td>
             <td class="blanc">38</td>

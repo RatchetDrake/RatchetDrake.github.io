@@ -43,5 +43,7 @@ th, td {
     padding: 10px; /* Ajoutez de l'espace à l'intérieur des cellules */
 }
 .npays{
-    
+    font-weight: bold;
+    justify-content: center;
+
 }
