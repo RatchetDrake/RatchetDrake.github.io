@@ -319,9 +319,43 @@ justify-content: center; /*largeur*/
    align-items: center;
    margin-top: -5%;
 }
-#minuteur {
-    font-size: 6em;
-    font-family: fantasy;
+
+#timer{
+    font-size: 8em;
+    font-family: BebasNeue;
+    color: red;
+    margin-top: 20px;
 }
+/* Style du conteneur principal */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Style du formulaire et des boutons */
+label, input, button {
+    margin: 5px;
+    padding: 5px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Style du chronomètre */
+
+    
+
 
 
