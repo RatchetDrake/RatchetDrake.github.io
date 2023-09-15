@@ -1,105 +1,74 @@
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 1; /* Ajustez l'opacité selon vos préférences */
-    background: url('https://www.youtube.com/embed/V1Pl8CzNzCw?autoplay=1&controls=0&loop=1&playlist=V1Pl8CzNzCw') no-repeat center center fixed;
-    background-size: cover;
-}
-
-body {
-    font-family: 'Gothic', sans-serif;
-    background-color: #1f1f1f; /* Couleur de fond sombre */
-    color: #ffffff; /* Couleur du texte */
-    margin: 0;
-    overflow: hidden;
-}
-
+/* Style pour le conteneur principal */
 .container {
     width: 50%;
-    margin: 0 auto;
-    padding: 50px;
-    border: 1px solid #666666;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #00ff00; /* Bordure verte fluo */
     border-radius: 10px;
-    margin-top: 50px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ombre pour le conteneur */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Ombre verte fluo */
+    background-color: #000; /* Fond noir */
+    color: #00ff00; /* Couleur de texte verte fluo */
+    font-family: 'Orbitron', sans-serif; /* Police de style futuriste */
 }
 
+/* Style pour le titre */
 h2 {
     text-align: center;
-    color: #8b0000; /* Rouge foncé pour le titre */
+    color: #00ff00; /* Vert fluo */
+    font-size: 36px; /* Taille de police plus grande */
+    margin-bottom: 20px;
 }
 
+/* Style pour les labels */
 label {
     display: block;
-    margin-bottom: 5px;
-    color: #8b0000; /* Rouge foncé pour les labels */
+    margin-bottom: 10px; /* Augmentation de l'espacement */
+    color: #00ff00; /* Vert fluo */
+    font-size: 20px; /* Taille de police légèrement plus grande */
 }
 
+/* Style pour les champs de texte et le bouton */
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="submit"] {
-    width: 100%;
-    padding: 10px;
+    width: calc(100% - 20px);
+    padding: 16px;
     margin-bottom: 10px;
-    border-radius: 5px;
-    color: #ffffff;
-    border: 1px solid #666666;
-    background-color: #2f2f2f; /* Couleur de fond pour les champs de texte et le bouton */
+    border-radius: 10px;
+    border: 2px solid #00ff00; /* Bordure verte fluo */
+    background-color: rgba(0, 0, 0, 0.9); /* Fond légèrement transparent */
+    color: #00ff00; /* Couleur de texte verte fluo */
+    font-size: 20px; /* Taille de police légèrement plus grande */
 }
 
+/* Style pour le bouton */
 input[type="submit"] {
     border: none;
     cursor: pointer;
-    background-color: #8b0000; /* Rouge foncé pour le bouton */
+    background-color: #00ff00; /* Vert fluo */
+    color: black; /* Couleur du texte */
+    font-size: 24px; /* Taille de police légèrement plus grande */
 }
 
+/* Changement de couleur du bouton au survol */
 input[type="submit"]:hover {
-    background-color: #aa0000; /* Rouge plus clair au survol */
+    background-color: #008000; /* Vert foncé */
 }
 
+/* Style pour les liens */
 a {
-    color: #8b0000; /* Rouge foncé pour les liens */
+    color: #00ff00; /* Vert fluo */
     text-decoration: none;
 }
 
+/* Changement de couleur du lien au survol */
 a:hover {
-    color: #0003ce; /* Rouge plus clair au survol des liens */
+    color: #008000; /* Vert foncé */
 }
 
-.password-input {
-    position: relative;
-}
-
-.password-toggle {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    margin-left: 10px; /* Ajout de la marge à gauche pour centrer horizontalement */
-    opacity: 0.6; /* Opacité semi-transparente */
-}
-.user-info {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    color: #ffffff;
-    font-weight: bold;
-    /* ... Autres styles ... */
-}.user-info {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    color: #ffffff;
-    font-weight: bold;
-    /* ... Autres styles ... */
+/* Police de style futuriste - Orbitron */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+body{
+    background-color: black;
 }
