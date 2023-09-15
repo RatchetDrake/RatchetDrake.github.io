@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.carte {
+    border: 2px solid #000;
+    width: 800px; /* Augmentation de la largeur */
+    height: 500px; /* Augmentation de la hauteur */
+    background-color: indigo;   
+    padding: 30px; /* Augmentation de l'espacement intérieur */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Légère augmentation de l'ombre */
+    display: flex;
+    flex-direction:row;
+    align-items: self-start;
+}
+
+.contenu {
+    
+    background-color: chocolate;
+    
+}
+
+.adresse h2, .message h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    background-color: green;
+}
+
+.adresse p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.message p {
+    font-size: 16px;
+    margin-top: 10px;
+    background-color: aquamarine;
+}
+
+.separator {
+    border-right: 2px solid #000; /* Utilisation de border-right */
+    height: 100%; /* Hauteur de la carte */
+    margin-left: 25px;
+    margin-right: 20px;
+    background-color: aqua;
+}
+
+.image-carte img {
+    max-width: 30%;
+    max-height: 30%; /* Permet à l'image de s'ajuster correctement */
+    margin-bottom: 20px; /* Ajustement de la marge inférieure */
+    background-color: red;
+}
+.texte{
+    text-align: center;
+}
+.tampon{
+    transform: rotate(30deg);
+}
+.obli{
+    margin-right: 10%;
+}
