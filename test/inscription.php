@@ -1,13 +1,101 @@
+<?php
+session_start();
+
+// Connexion à la base de données
+$serveur = "localhost";
+$utilisateur = "RatchetDrake";
+$motdepasse = "Azerty";
+$nomBaseDeDonnees = "projet";
+
+$connexion = new mysqli($serveur, $utilisateur, $motdepasse, $nomBaseDeDonnees);
+
+if ($connexion->connect_error) {
+    die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+}
+
+// Initialiser la variable pour stocker les messages d'erreur
+$erreur = "";
+
+// Vérifiez si le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupérez les valeurs du formulaire
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $email = $_POST['email'];
+    $motdepasse = $_POST['login_motdepasse'];
+    $confirm_motdepasse = $_POST['confirm_motdepasse'];
+
+    // Vérification de l'adresse email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $erreur = "L'adresse email n'est pas valide.";
+    }
+
+    // Vérification du nom d'utilisateur
+    $stmt = $connexion->prepare("SELECT nom FROM utilisateurs WHERE nom = ?");
+    $stmt->bind_param("s", $nom);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $erreur = "Le nom d'utilisateur est déjà utilisé. Veuillez en choisir un autre.";
+    }
+
+    // Vérification de l'adresse email
+    $stmt = $connexion->prepare("SELECT email FROM utilisateurs WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $erreur = "L'adresse email est déjà utilisée. Veuillez en choisir une autre.";
+    }
+
+    // Vérifier les critères du mot de passe
+    if (strlen($motdepasse) < 8 || !preg_match('/[A-Za-z]/', $motdepasse) || !preg_match('/\d/', $motdepasse) || !preg_match('/[@$!%*?&]/', $motdepasse)) {
+        $erreur = "Le mot de passe ne respecte pas les critères requis.";
+    }
+
+    // Vérification que les mots de passe correspondent
+    if ($motdepasse !== $confirm_motdepasse) {
+        $erreur = "Les mots de passe ne correspondent pas.";
+    }
+
+    // Si aucune erreur, procéder à l'inscription
+    if (empty($erreur)) {
+        // Hash du mot de passe
+        $motdepasse_hache = password_hash($motdepasse, PASSWORD_DEFAULT);
+
+        // Requête SQL pour insérer les données dans la table 'utilisateurs'
+        $sql = "INSERT INTO utilisateurs (nom, prenom, email, motdepasse) VALUES ('$nom', '$prenom', '$email', '$motdepasse_hache')";
+
+        if ($connexion->query($sql) === TRUE) {
+            // Rediriger vers la page principale après inscription réussie
+            $_SESSION['nom'] = $nom;  // Assurez-vous que $nom contient la valeur correcte.
+            header("Location: index.php");
+            exit();
+        } else {
+            $erreur = "Erreur lors de l'inscription : " . $connexion->error;
+        }
+    }
+}
+
+$connexion->close();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Inscription</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 <body>
     <div class="container">
         <h2>Inscription</h2>
+        <?php
+        if (!empty($erreur)) {
+            echo "<div style='color: red;'>Erreur: $erreur</div>";
+        }
+        ?>
         <form action="inscription.php" method="post" onsubmit="return validateForm()">
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" required><br><br>
@@ -53,61 +141,3 @@
     </script>
 </body>
 </html>
-
-
-
-<?php
-// Connexion à la base de données
-$serveur = "localhost";
-$utilisateur = "RatchetDrake";
-$motdepasse = "Azerty";
-$nomBaseDeDonnees = "projet";
-
-$connexion = new mysqli($serveur, $utilisateur, $motdepasse, $nomBaseDeDonnees);
-
-if ($connexion->connect_error) {
-    die("La connexion à la base de données a échoué : " . $connexion->connect_error);
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $email = $_POST['email'];
-    $motdepasse = $_POST['login_motdepasse'];
-    $confirm_motdepasse = $_POST['confirm_motdepasse'];
-
-    // Vérification de l'adresse email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<script>alert('L\'adresse email n\'est pas valide.');</script>";
-        exit();
-    }
-
-    // Vérifier les critères du mot de passe
-    if (strlen($motdepasse) < 8 || !preg_match('/[A-Za-z]/', $motdepasse) || !preg_match('/\d/', $motdepasse) || !preg_match('/[@$!%*?&]/', $motdepasse)) {
-        echo "<script>alert('Le mot de passe ne respecte pas les critères requis.');</script>";
-        exit();
-    }
-
-    // Vérification que les mots de passe correspondent
-    if ($motdepasse !== $confirm_motdepasse) {
-        echo "<script>alert('Les mots de passe ne correspondent pas.');</script>";
-        exit();
-    }
-
-    // Hash du mot de passe
-    $motdepasse_hache = password_hash($motdepasse, PASSWORD_DEFAULT);
-
-    // Requête SQL pour insérer les données dans la table 'utilisateurs'
-    $sql = "INSERT INTO utilisateurs (nom, prenom, email, motdepasse) VALUES ('$nom', '$prenom', '$email', '$motdepasse_hache')";
-
-    if ($connexion->query($sql) === TRUE) {
-        // Rediriger vers la page principale après inscription réussie
-        header("Location: index.php");
-        exit();
-    } else {
-        echo "Erreur lors de l'inscription : " . $connexion->error;
-    }
-}
-
-$connexion->close();
-?>
