@@ -163,3 +163,6 @@ p {
     text-align: center; /* Centre le texte horizontalement */
 }
 
+#error-message{
+    color: red;
+}

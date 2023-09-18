@@ -17,17 +17,17 @@
                 <span class="password-toggle" onclick="togglePassword('login_motdepasse')">👁️</span>
             </div>
             <br><br>
+            <?php
+        // Affichage du message d'erreur s'il y en a un
+       
+        ?> <br><br>
 
             <input type="submit" value="Se connecter">
+
         </form>
         <p>Pas encore de compte ? <a href="inscription.php">Inscrivez-vous ici</a>.</p>
 
-        <?php
-        // Affichage du message d'erreur s'il y en a un
-        if (!empty($erreurMessage)) {
-            echo '<div class="error-message">' . $erreurMessage . '</div>';
-        }
-        ?>
+        
     </div>
 
     <script>
@@ -78,10 +78,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: index.php");
             exit();
         } else {
-            echo "La connexion a échoué. Veuillez vérifier vos informations d'identification.";
+            echo "<div style='color: red; >La connexion a échoué. Veuillez vérifier vos informations d'identification. </div>";
         }
     } else {
-        echo "La connexion a échoué. Veuillez vérifier vos informations d'identification.";
+        echo " <div style='color: red; > La connexion a échoué. Veuillez vérifier vos informations d'identification.</div>";
     }
 }
 
