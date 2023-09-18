@@ -34,14 +34,14 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="submit"] {
-    width: calc(100% - 20px);
+    width: calc(100% - 32px);
     padding: 16px;
     margin-bottom: 10px;
     border-radius: 10px;
-    border: 2px solid #00ff00; /* Bordure verte fluo */
-    background-color: rgba(0, 0, 0, 0.9); /* Fond légèrement transparent */
-    color: #00ff00; /* Couleur de texte verte fluo */
-    font-size: 20px; /* Taille de police légèrement plus grande */
+    border: 2px solid #00ff00;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #00ff00;
+    font-size: 20px;
 }
 
 /* Style pour le bouton */
@@ -120,3 +120,46 @@ body{
 .nav-links a:hover .info {
     display: block;
 }
+/* ... Autres styles ... */
+
+/* Style pour les champs de mot de passe et le bouton */
+.password-input {
+    position: relative;
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+}
+
+.password-input input[type="password"] {
+    width: calc(100% - 32px); /* Ajustement pour la largeur de l'icône et le padding */
+    padding-right: 32px; /* Ajustement pour la largeur de l'icône */
+}
+
+.password-input .password-toggle {
+    position: absolute;
+    right: 6px; /* Ajustement pour positionner au milieu à droite */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    opacity: 0.2; 
+}
+/* Style pour le bouton */
+input[type="submit"] {
+    border: none;
+    cursor: pointer;
+    background-color: #00ff00;
+    color: black;
+    font-size: 24px;
+    display: block; /* Afficher en tant que bloc pour pouvoir définir la largeur et centrer */
+    margin: 0 auto; /* Centre le bouton horizontalement */
+    width: 50%; /* Largeur du bouton */
+}
+
+/* Changement de couleur du bouton au survol */
+input[type="submit"]:hover {
+    background-color: #008000;
+}
+p {
+    text-align: center; /* Centre le texte horizontalement */
+}
+

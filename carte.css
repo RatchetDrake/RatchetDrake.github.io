@@ -1,0 +1,46 @@
+
+body {
+    background-color: blueviolet;
+}
+
+.carte {
+    background-color: cornsilk;
+    border: 2px solid black;
+    width: 700px;
+    height: 400px;
+    box-shadow: 5px 4px 5px black;
+}
+
+.separateur {
+    position: absolute;
+    /* La position absolute dit à notre élément de ce décoller
+    de la page pour bousculer aucun élément et pouvoir le 
+    déplacer comme on le souhaite */
+    height: 350px;
+    left: 400px;
+    top: 30px;
+    border-left: 3px solid black;
+}
+
+.timbre {
+    position: relative;
+    left: 590px;
+    top: 10px;
+    width: 85px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+.texte {
+    position: absolute;
+    text-align: justify;
+    margin: 15px;
+    height: 333px;
+    width: 372px;
+}
+
+.texte p {
+    margin: 0;
+    font-size: 1.8em;
+    font-family: Ephesis, cursive;
+}

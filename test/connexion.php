@@ -5,19 +5,34 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="container">
+<div class="container">
         <h2>Connexion</h2>
         <form action="connexion.php" method="post">
             <label for="login_email">Email :</label>
             <input type="email" id="login_email" name="login_email" required><br><br>
 
             <label for="login_motdepasse">Mot de passe :</label>
-            <input type="password" id="login_motdepasse" name="login_motdepasse" required><br><br>
+            <div class="password-input">
+                <input type="password" id="login_motdepasse" name="login_motdepasse" required>
+                <span class="password-toggle" onclick="togglePassword('login_motdepasse')">👁️</span>
+            </div>
+            <br><br>
 
             <input type="submit" value="Se connecter">
         </form>
         <p>Pas encore de compte ? <a href="inscription.php">Inscrivez-vous ici</a>.</p>
     </div>
+
+    <script>
+        function togglePassword(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
 
