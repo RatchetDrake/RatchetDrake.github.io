@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <h2>Connexion</h2>
         <form action="connexion.php" method="post">
             <label for="login_email">Email :</label>
@@ -21,6 +21,13 @@
             <input type="submit" value="Se connecter">
         </form>
         <p>Pas encore de compte ? <a href="inscription.php">Inscrivez-vous ici</a>.</p>
+
+        <?php
+        // Affichage du message d'erreur s'il y en a un
+        if (!empty($erreurMessage)) {
+            echo '<div class="error-message">' . $erreurMessage . '</div>';
+        }
+        ?>
     </div>
 
     <script>
@@ -35,6 +42,9 @@
     </script>
 </body>
 </html>
+
+
+
 
 <?php
 session_start(); // Démarre la session

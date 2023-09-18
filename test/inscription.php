@@ -91,11 +91,7 @@ $connexion->close();
 <body>
     <div class="container">
         <h2>Inscription</h2>
-        <?php
-        if (!empty($erreur)) {
-            echo "<div style='color: red;'>Erreur: $erreur</div>";
-        }
-        ?>
+       
         <form action="inscription.php" method="post" onsubmit="return validateForm()">
             <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" required><br><br>
@@ -118,9 +114,13 @@ $connexion->close();
                 <input type="password" id="confirm_motdepasse" name="confirm_motdepasse" required>
                 <span class="password-toggle" onclick="togglePassword('confirm_motdepasse')">👁️</span>
             </div>
-            <br><br>
+             <?php
+        if (!empty($erreur)) {
+            echo "<div style='color: red;'>Erreur: $erreur</div>";
+        }
+        ?>
 
-            <input type="submit" value="S'inscrire">
+<br><br> <input type="submit" value="S'inscrire">
         </form>
         <p>Déjà un compte ? <a href="connexion.php">Connectez-vous ici</a>.</p>
     </div>

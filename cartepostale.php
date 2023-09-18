@@ -27,7 +27,9 @@
             <img src="./image/timbre.png" alt="Timbre">
         </div>
         <img src="./image/tampon.png" alt="Tampon">
-        <p class="tampon"></p>
+        <p class="tampon">
+        <?php echo date('d/m/y'); ?>
+        </p>
         <img src="./image/obliteration.png" alt="Obliteration">
         <div class="separateur"></div>
         <div class="information">
@@ -36,7 +38,7 @@
             <p>Saint Barthélemy</p>
             <p>France</p>
         </div>
-        <div class="copyright"></div>
+        <div class="copyright">&copy; | La carte Parisienne Tel : <a href="#">03.82.47.10.53</a></div>
     </div>
 </body>
 
