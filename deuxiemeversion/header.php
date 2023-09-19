@@ -4,8 +4,7 @@
 <html>
 <head>
     <title>Page d'accueil</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="test.js">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap">
     <style>
         /* Ajoutez ici votre CSS personnalisé pour l'effet du volet d'informations */
