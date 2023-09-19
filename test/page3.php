@@ -1,108 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page d'accueil</title>
+    <link rel="stylesheet" type="text/css" href="styleP3.css">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap">
+    <style>
+        /* Ajoutez ici votre CSS personnalisé pour l'effet du volet d'informations */
+        /* ... Votre CSS pour l'effet de volet d'informations ... */
+    </style>
 
+</head>
+<body>
+
+    
 <?php
-include('header2.php');
-?><article>
-  <header>
-    <h1>How the iMac saved Apple</h1>
-    <h4>By Jason Snell</h4>
-  </header>
+        session_start();
 
-  <picture>
-    <img class="full" src="https://duet-cdn.vox-cdn.com/thumbor/0x0:2014x1340/1440x960/filters:focal(1007x670:1008x671):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/24849813/How_the_iMac_saved_Apple_.jpg" alt="Steve Jobs" />
-  </picture>
+        // Vérifiez si l'utilisateur est connecté (si le nom est stocké dans la session)
+        if (isset($_SESSION['nom'])) {
+            echo '<div class="user-info">Bonjour, ' . htmlspecialchars($_SESSION['nom']) . '</div>';
+        }
 
-  <span>
-    "Twenty-five years ago, Apple released the computer that would save it
-    from bankruptcy and pave the way for Apple to become the most important
-    technology company ever."
-  </span>
+        // Vérifier et afficher le message d'erreur d'inactivité s'il existe
+        if (isset($_SESSION['erreur_inactivite'])) {
+            echo '<div class="error-message">' . $_SESSION['erreur_inactivite'] . '</div>';
+            unset($_SESSION['erreur_inactivite']);  // Effacer le message après l'affichage
+        }
+    ?>
 
-  <p>
-    On August 15th, 1998, the iMac hit store shelves. In the 25 years since
-    then, the iMac has been a core product in Apple’s lineup and influenced
-    many other products, both inside and outside the company. Today, we’re
-    celebrating the iMac’s silver anniversary with a series of pieces
-    exploring its design, influence, and future.
-  </p>
+    <!-- Lien de déconnexion -->
+    <a href="deconnexion.php" class="button">Se déconnecter</a>
+    <div class="container">
+        <h2>Contenu de la Page 1</h2>
+        <p>Bienvenue sur la page 1. Voici du contenu intéressant...</p>
+    </div>
+<div class="navpage2">
+    <nav class="nav-links">
+        <a href="index.php">Accueil</a>
+        <a href="page2.php">Page 2</a>
+        <a href="page3.php">Page 3</a>
+    </nav>
+    </div>
+<div class="controls">
+  <label for="subgrid">Use Subgrid?</label>
+  <input type="checkbox" id="subgrid" />
+</div>
 
-  <h2>
-    The original iMac entered a computing world that was in desperate need
-    of a shake-up.
-  </h2>
-
-  <p>
-    After the wild early days of the personal computer revolution, things
-    had become stagnant by the mid-1990s. Apple had spent a decade
-    frittering away the Mac’s advantages until most of them were gone, blown
-    out of the water by the enormous splash of Windows 95. It was the era of
-    beige desktop computers chained to big CRT displays and other
-    peripherals.
-  </p>
-  <p>
-    In 1997, Steve Jobs returned to an Apple that was at death’s door, and
-    in true Princess Bride style, he rapidly ran down a list of the
-    company’s assets and liabilities. Apple didn’t have a wheelbarrow or a
-    holocaust cloak, but it did have a young industrial designer who had
-    been experimenting with colors and translucent plastic in Apple’s
-    otherwise boring hardware designs.
-  </p>
-  <p>
-    With Jobs’ brains, Jony Ive’s designs, and the new PowerPC G3 chip
-    supplied by Motorola, the company began to form a plan. Essentially,
-    Jobs went back to his playbook for the original “computer for the rest
-    of us,” the Mac, to sell simplicity. The Mac’s mouse-driven graphical
-    interface may have changed the course of the PC world, but its
-    all-in-one design just hadn’t clicked. Jobs decided it was time to try
-    again.
-  </p>
-
-  <h2>The anti-computer</h2>
-  <p>
-    The iMac contradicted every rule of the PC industry of the mid-’90s.
-    Instead of being modular, it was a self-contained unit (with a built-in
-    handle!). Beige was out, and translucent blue-green plastic was in. The
-    iMac looked like nothing else in the computer industry. But the iMac
-    wasn’t just a rule-breaker when it came to looks. Jobs made a series of
-    decisions that were surprising at the time, though he’d keep repeating
-    them throughout his tenure at Apple. The iMac gave no consideration to
-    compatibility or continuity and embraced promising new technology when
-    the staid PC industry refused.
-  </p>
-  <p>
-    But the iMac wasn’t just a rule-breaker when it came to looks. Jobs made
-    a series of decisions that were surprising at the time, though he’d keep
-    repeating them throughout his tenure at Apple. The iMac gave no
-    consideration to compatibility or continuity and embraced promising new
-    technology when the staid PC industry refused.
-  </p>
-  <p>
-    Since the 1980s, Macs connected to accessories via a few standard ports:
-    SCSI (for fast connections to devices like drives and scanners), serial
-    (for printers, modems, and local networking), and Apple Desktop Bus (for
-    keyboards and mice). Mac users had built up ecosystems around all those
-    ports, separate from the incompatible serial and parallel ports in the
-    PC world.
-  </p>
-  <p>
-    Jobs threw all that stuff in the trash and started again. Instead of old
-    ports, the iMac would use a new standard that hadn’t really caught fire
-    in the PC world: Universal Serial Bus, or USB.
-  </p>
-
-  <figure>
-    <img src="https://duet-cdn.vox-cdn.com/thumbor/0x0:7360x4912/828x553/filters:focal(3680x2456:3681x2457):format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/24850451/903741502.jpg" alt="USB Image" />
-    <figcaption>
-      The iMac’s adoption of USB instead of legacy Mac ports stirred
-      controversy, but paved the way for the future. Photo by James
-      Sheppard/iCreate Magazine/Future via Getty Images
-    </figcaption>
-  </figure>
-
-  <p>
-    The iMac gets remembered for a lot of things, and rightly so, but it
-    doesn’t get enough credit for essentially kick-starting the USB
-    revolution. (I can type on a 25-year-old iMac USB keyboard attached to a
-    2023 Mac Mini with no adapters! What stunning longevity.)
-  </p>
-</article>
+<main>
+  <article class=card>
+    <img src="https://picsum.photos/300/200?random=2" alt="">
+    <h2>Exploring</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    <a href="#">Read more...</a>
+  </article>
+  <article class=card>
+    <img src="https://picsum.photos/300/200?random=3" alt="">
+    <h2>CSS Subgrid</h2>
+    <p>Id dolor laborum vitae. Enim ex ratione consectetur omnis consequuntur optio provident, possimus laborum nulla fugit</p>
+    <a href="#">Read more...</a>
+  </article>
+  <article class=card>
+    <img src="https://picsum.photos/300/200?random=5" alt="">
+    <h2>Superpower</h2>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    <a href="#">Read more...</a>
+  </article>
+</main>
+<script src="page3.js"></script>
