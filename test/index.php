@@ -4,20 +4,19 @@
     <title>Page d'accueil</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap">
-   
 </head>
 <body>
-    <?php
+    <div class="user-info">
+        <?php
         session_start();
 
         // Vérifiez si l'utilisateur est connecté (si le nom est stocké dans la session)
         if (isset($_SESSION['nom'])) {
-            echo '<div class="user-info">Bonjour, ' . htmlspecialchars($_SESSION['nom']) . '</div>';
+            echo 'Bonjour, ' . htmlspecialchars($_SESSION['nom']);
+            echo ' - <a href="deconnexion.php" class="button">Se déconnecter</a>';
         }
-    ?>
-
-    <!-- Lien de déconnexion -->
-    <a href="deconnexion.php" class="button">Se déconnecter</a>
+        ?>
+    </div>
 
     <div class="container">
         <h2>Bienvenue sur notre site !</h2>
@@ -25,9 +24,6 @@
     </div>
 
     <nav class="nav-links">
-        <a href="page1.php">Page 1</a>
-        <a href="page2.php">Page 2</a>
-        <a href="page3.php">Page 3</a>
         <a href="page1.php">Page 1</a>
         <a href="page2.php">Page 2</a>
         <a href="page3.php">Page 3</a>

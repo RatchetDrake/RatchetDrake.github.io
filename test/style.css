@@ -120,7 +120,6 @@ body{
 .nav-links a:hover .info {
     display: block;
 }
-/* ... Autres styles ... */
 
 /* Style pour les champs de mot de passe et le bouton */
 .password-input {
@@ -143,6 +142,7 @@ body{
     font-size: 20px;
     opacity: 0.2; 
 }
+
 /* Style pour le bouton */
 input[type="submit"] {
     border: none;
@@ -159,10 +159,17 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #008000;
 }
+
 p {
     text-align: center; /* Centre le texte horizontalement */
 }
 
 #error-message{
     color: red;
+}
+
+.div-erreur{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
