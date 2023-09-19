@@ -68,8 +68,18 @@ $connexion->close();
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+   
+<body>
     <div class="container">
         <h2>Connexion</h2>
+
+        <!-- Affichage du message d'erreur d'inactivité s'il existe -->
+        <?php
+            if (isset($_SESSION['erreur_inactivite'])) {
+                echo '<div class="error-message">' . $_SESSION['erreur_inactivite'] . '</div>';
+                unset($_SESSION['erreur_inactivite']);  // Effacer le message après l'affichage
+            }
+        ?>
         <form action="connexion.php" method="post">
             <label for="login_email">Email :</label>
             <input type="email" id="login_email" name="login_email" required><br><br>
