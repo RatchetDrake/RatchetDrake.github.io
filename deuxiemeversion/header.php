@@ -17,8 +17,8 @@
         session_start();
 
         // Vérifiez si l'utilisateur est connecté (si le nom est stocké dans la session)
-        if (isset($_SESSION['nom'])) {
-            echo '<div class="user-info">Bonjour, ' . htmlspecialchars($_SESSION['nom']) . '</div>';
+        if (isset($_SESSION['pseudo'])) {
+            echo '<div class="user-info">Bonjour, ' . htmlspecialchars($_SESSION['pseudo']) . '</div>';
         }
 
         // Vérifier et afficher le message d'erreur d'inactivité s'il existe

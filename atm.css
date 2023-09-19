@@ -1,3 +1,6 @@
+body {
+    user-select: none;
+}
 section {
     left: 50%;
     top: 50%;
@@ -28,8 +31,42 @@ section {
     border: none;
 }
 
-.num:hover {
+div.num:hover, button.num:hover {
     cursor: pointer;
     background-color: black;
     color: white;
+}
+
+#texte input {
+    width: 30%;
+    height: 90%;
+    text-align: center;
+    font-size: 1em;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px ridge black;
+    background-color: transparent;
+    border-radius: 12px;
+    outline: none;
+    cursor: default;
+}
+
+#reject p, #erase p, button[type='submit'] p {
+    height: 5px;
+    width: 62px;
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.red {
+    background-color: red;
+}
+.yellow {
+    background-color: yellow;
+}
+.green {
+    background-color: green;
 }
