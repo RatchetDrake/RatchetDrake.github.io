@@ -117,6 +117,14 @@ $connexion->close();
                 passwordInput.type = "password";
             }
         }
+
+        window.addEventListener('beforeunload', function (event) {
+            // Envoyer une requête à deconnexion.php pour indiquer la fermeture de la page
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'deconnexion.php', false);
+            xhr.send();
+        });
     </script>
 </body>
 </html>
+
