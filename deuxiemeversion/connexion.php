@@ -1,26 +1,6 @@
 <?php
 session_start();
 
-// Vérifie le temps d'inactivité et déconnecte l'utilisateur si nécessaire
-function verifier_inactivite() {
-    $temps_inactivite = 300;  // Temps d'inactivité en secondes (300 secondes = 5 minutes)
-
-    if (isset($_SESSION['temps_derniere_activite']) && time() - $_SESSION['temps_derniere_activite'] > $temps_inactivite) {
-        // La session a dépassé le temps d'inactivité, déconnexion de l'utilisateur
-        session_unset();
-        session_destroy();
-        $_SESSION['erreur_inactivite'] = "Vous avez été déconnecté en raison d'une inactivité prolongée.";
-        header("Location: connexion.php"); // Rediriger vers la page de connexion par exemple
-        exit();
-    }
-
-    // Met à jour le temps de dernière activité
-    $_SESSION['temps_derniere_activite'] = time();
-}
-
-// Vérifie l'inactivité à chaque chargement de page
-verifier_inactivite();
-
 // Connexion à la base de données
 $serveur = "localhost";
 $utilisateur = "RatchetDrake";
@@ -47,8 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultat->num_rows == 1) {
         $row = $resultat->fetch_assoc();
         if (password_verify($motdepasse, $row['motdepasse'])) {
-            // Connexion réussie, stockez le nom dans la session
-            $_SESSION['pseudo'] = $row['pseudo'];  // Utilisation de 'pseudo' au lieu de 'nom'
+            // Connexion réussie, stockez le pseudo dans la session
+            $_SESSION['pseudo'] = $row['pseudo'];
             // Rediriger vers la page principale après connexion réussie
             header("Location: index.php");
             exit();
@@ -78,17 +58,17 @@ $connexion->close();
 
         <!-- Affichage du message d'erreur d'inactivité s'il existe -->
         <?php
-            if (isset($_SESSION['erreur_inactivite'])) {
-                echo '<div class="error-message">' . $_SESSION['erreur_inactivite'] . '</div>';
-                unset($_SESSION['erreur_inactivite']);  // Effacer le message après l'affichage
-            }
+        if (isset($_SESSION['erreur_inactivite'])) {
+            echo '<div class="error-message">' . $_SESSION['erreur_inactivite'] . '</div>';
+            unset($_SESSION['erreur_inactivite']);  // Effacer le message après l'affichage
+        }
         ?>
 
         <!-- Affichage du message d'erreur de connexion -->
         <?php
-            if (!empty($erreur)) {
-                echo '<div class="error-message">' . $erreur . '</div>';
-            }
+        if (!empty($erreur)) {
+            echo '<div class="div-erreur">' . $erreur . '</div>';
+        }
         ?>
 
         <form action="connexion.php" method="post">
@@ -101,9 +81,13 @@ $connexion->close();
                 <span class="password-toggle" onclick="togglePassword('login_motdepasse')">👁️</span>
             </div>
 
-            <br><br>
+            <br>
+
             <input type="submit" value="Se connecter">
         </form>
+
+        <!-- Lien pour la réinitialisation du mot de passe -->
+        <p><a href="reset_password_form.php">Mot de passe oublié ? Réinitialisez-le ici</a></p>
 
         <p>Pas encore de compte ? <a href="inscription.php">Inscrivez-vous ici</a>.</p>
     </div>
@@ -127,4 +111,3 @@ $connexion->close();
     </script>
 </body>
 </html>
-

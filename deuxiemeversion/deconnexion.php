@@ -10,7 +10,8 @@ if (isset($_SESSION['last_activity'])) {
         // La session a dépassé le temps d'inactivité, déconnexion de l'utilisateur
         session_unset();
         session_destroy();
-        header("Location: connexion.php");
+        $_SESSION['erreur_inactivite'] = "Vous avez été déconnecté en raison d'une inactivité prolongée.";
+        header("Location: connexion.php");  // Rediriger vers la page de connexion
         exit();
     }
 }
@@ -19,6 +20,6 @@ if (isset($_SESSION['last_activity'])) {
 $_SESSION['last_activity'] = time();
 
 // Rediriger vers la page d'accueil ou autre après déconnexion
-header("Location: index.php");  // Mettez ici votre URL de redirection après déconnexion
+header("Location: connexion.php");  // Mettez ici votre URL de redirection après déconnexion
 exit();
 ?>

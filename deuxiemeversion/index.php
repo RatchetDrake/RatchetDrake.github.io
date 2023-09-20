@@ -1,23 +1,41 @@
 <?php
 include('header.php');
 ?>
-<!DOCTYPE html>
-<html>
 <head>
-    <title>Page d'accueil</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Culture Geek - Mon Site Web</title>
+  <link rel="stylesheet" type="text/css" href="./css/page.css">
 </head>
 <body>
+ 
 
-    <div class="container">
-        <h2>Bienvenue sur notre site !</h2>
-        <!-- Contenu du conteneur -->
+  <main>
+  <div class="container">
+  <h2>Bienvenue dans l'univers Geek</h2>
+  <p>Découvrez l'actualité, les critiques et les événements de la culture Geek.</p>
+
+  <div id="slideshow-container">
+    <div class="slide fade">
+      <img src="../image/1706831-bg3-1-article_image_t-2.jpg" alt="Image 1">
     </div>
 
-    <nav class="nav-links">
-        <a href="page1.php">Page 1</a>
-        <a href="page2.php">Page 2</a>
-        <a href="page3.php">Page 3</a>
-    </nav>
+    <div class="slide fade">
+      <img src="../image/Starfield-game-HD-scaled-1.webp" alt="Image 2">
+    </div>
+
+    <div class="slide fade">
+      <img src="../image/PayDay-3.jpg" alt="Image 3">
+    </div>
+
+    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+  </div>
+</div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Culture Geek. Tous droits réservés.</p>
+  </footer>
 </body>
+<script src="./js/page.js"></script>
 </html>
