@@ -57,7 +57,7 @@ verifierConnexion();
       <li><a href="index.php">Accueil</a></li>
         <li><a href="News.php">News</a></li>
         <li><a href="articles.php">Articles</a></li>
-        <li><a href="#">Vidéos</a></li>
+        <li><a href="video.php">Vidéos</a></li>
         <li><a href="#">Jeux</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
