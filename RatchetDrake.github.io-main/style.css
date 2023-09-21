@@ -1,0 +1,150 @@
+ tr,
+ td,
+ table {
+     border: 1px solid red;
+     font-family: fantasy;
+     font-style: oblique;
+     text-align: center;
+     border-radius: 15px;
+     border-spacing: 0px;
+
+
+ }
+
+ th {
+     background-color: red;
+     color: gold;
+
+ }
+
+ .chiffre {
+     color: red;
+     background-color: gray;
+
+ }
+
+ body {
+     background-color: red;
+ }
+
+ p {
+     color: black;
+ }
+
+ tr td {
+     text-align: center;
+ }
+
+ tr:nth-child(4) {
+     background-color: blue;
+ }
+
+ tr:nth-child(2) {
+     background-color: brown;
+ }
+
+ table {
+     background-color: aliceblue;
+     border-radius: 10%;
+ }
+
+ .bonjour td {
+     background-color: aquamarine;
+ }
+
+ .Pays {
+     background-color: red;
+ }
+
+ .Natio {
+     background-color: green;
+ }
+
+ #animal:hover {
+     cursor: pointer
+ }
+
+ .texte {
+     color: black;
+ }
+
+ .texte2 {
+     color: black;
+ }
+
+ .texte3 {
+     color: greenyellow;
+ }
+
+ .texte4 {
+     color: cyan;
+ }
+
+ #Fname,
+ #Lname,
+ #E-mail {
+     background-color: aquamarine;
+ }
+
+ input[type="submit"],
+ input[type="reset"] {
+     font-size: larger;
+     background-color: blue;
+     border-radius: 0%;
+
+ }
+
+ #message {
+     resize: none;
+     background-color: aqua;
+     border: 10px solid green;
+ }
+
+ ::placeholder {
+     font-size: 30px;
+     color: firebrick;
+ }
+
+ .Field {
+     width: 400px;
+     background-color: rgb(1, 66, 41);
+ }
+
+ #PressButton,
+ #PressButton2 {
+     background-color: chartreuse;
+ }
+/* hj créer une animation qui ce nomme animationimg au début elle va transformer scaleX en -1 puis elle va transform scaleX en 1 et à la fin elle va transform scale en -1 */
+ @keyframes animationimg {
+     0% {
+         transform: scaleX(-1);
+     }
+     50%{
+        transform: scaleX(1);
+     }
+
+     100% {
+         transform: scaleX(-1);
+     }
+     
+ }
+
+ .img1 {
+     border: 4px dashed red;
+     border-radius: 25px;
+     opacity: 50%;
+     height: 30%;
+     /* height:auto; max-width: 100% */
+     max-width: 30%;
+     /* je rend mon image récursive/responsive */
+     filter: blur(1px);
+     filter: contrast(200%);
+     filter: saturate(200%);
+     animation: animationimg 1s ease-in infinite;
+     /* je dit que l'élément img joue l'animation =img qu'elle doit durée
+     1.5s en fonctionnement en ease-in et elle joue ce nombre une fini de fois */
+ }
+
+ img:hover {
+     transform: scaleX(-1);
+ } 

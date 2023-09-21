@@ -1,0 +1,65 @@
+.noire{
+    background-color: black;
+    border: 1 solid black;
+    color: aliceblue;  
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+.vert{
+    background-color: green;
+    border: 1 solid black;
+    color: aliceblue;  
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+
+}
+.jaune{ background-color: yellow;
+    border: 1 solid black;
+    
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+
+
+}
+.blanc{
+    border: 1 solid black;
+    
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+
+
+}
+table {
+    width: 75%; /* 75% de la largeur de la page */
+    margin: 0 auto; /* Centrez la table horizontalement */
+    border-collapse: collapse; /* Fusionnez les bordures des cellules */
+}
+th, td {
+    border: 1px solid black; /* Ajoutez une bordure aux cellules */
+    padding: 10px; /* Ajoutez de l'espace à l'intérieur des cellules */
+}
+.npays{
+    /* Hauteur de l'élément */
+    
+    text-align: start; /* Centrer horizontalement (en option) */
+    font-weight: bold;
+    justify-content: center;
+    
+
+}
+/* Style de surbrillance pour une ligne de tableau lors du survol */
+table tr:hover {
+    background-color: gray; /* Couleur de fond en surbrillance */
+    cursor: pointer; /* Change le curseur en main (pointeur) au survol */
+    color: white;
+}table td img {
+    vertical-align: middle;
+}
+table tr:hover .jaune {
+    color: blue;
+    background-color: gray;
+}
