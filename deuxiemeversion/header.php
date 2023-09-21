@@ -35,7 +35,6 @@ verifierConnexion();
 </head>
 <body>
 <?php
-    session_start();
 
     // Vérifiez si l'utilisateur est connecté (si le nom est stocké dans la session)
     if (isset($_SESSION['pseudo'])) {
