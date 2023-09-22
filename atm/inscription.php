@@ -10,6 +10,8 @@ require_once('../db.php')
     <link rel="stylesheet" href="atm.css">
 </head>
 <body>
+    <a href="index.php">Page D'accueil</a>
+    <a href="login.php">Connexion</a>
     <form action="" method="post">
         <pre>
             <label for="name">Prénom :</label>
@@ -19,7 +21,7 @@ require_once('../db.php')
             <label for="username">Pseudo :</label>
             <input type="text" name="username" id="username" required>
             <label for="password">Code :</label>
-            <input type="password" name="password" id="password" required pattern="^[0-9]{4}" maxlength=10>
+            <input type="password" name="password" id="password" required pattern="^[0-9]{4}" maxlength=4>
             <label for="confirm_password">Confirmation du code :</label>
             <input type="password" name="confirm_password" id="confirm" onchange="modifyPassword()" required pattern="^[0-9]{4}" maxlength=4>
             <br>
@@ -37,7 +39,7 @@ require_once('../db.php')
                     $_POST['name'],
                     $_POST['lastname'],
                     $_POST['username'],
-                    $_POST['password']
+                    sha1($_POST['password'])
                 ));
             } else {
                 echo "<script> alert('Le nom d\'utilisateur est déjà utilisé') </script>";
@@ -46,7 +48,14 @@ require_once('../db.php')
     ?>
     <script>
         function modifyPassword() {
-            
+            let password = document.getElementById('password')
+            let confirm = document.getElementById('confirm')
+
+            if (password.value !== confirm.value) {
+                confirm.setCustomValidity('Les mot de passes ne sont pas identique')
+            } else {
+                confirm.setCustomValidity('')
+            }
         }
     </script>
 </body>
