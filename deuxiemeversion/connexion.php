@@ -14,13 +14,13 @@ if ($connexion->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['login_email'];
+    $identifier = $_POST['login_identifier'];
     $motdepasse = $_POST['login_motdepasse'];
 
-    // Requête SQL pour vérifier les informations de connexion
-    $sql = "SELECT * FROM utilisateurs WHERE email = ?";
+    // Requête SQL pour vérifier les informations de connexion (using email or pseudo)
+    $sql = "SELECT * FROM utilisateurs WHERE email = ? OR pseudo = ?";
     $stmt = $connexion->prepare($sql);
-    $stmt->bind_param("s", $email);
+    $stmt->bind_param("ss", $identifier, $identifier);
     $stmt->execute();
     $resultat = $stmt->get_result();
 
@@ -71,20 +71,21 @@ $connexion->close();
         }
         ?>
 
-        <form action="connexion.php" method="post">
-            <label for="login_email">Email :</label>
-            <input type="email" id="login_email" name="login_email" required><br><br>
+<form action="connexion.php" method="post">
+    <label for="login_identifier">Email ou Pseudo:</label>
+    <input type="text" id="login_identifier" name="login_identifier" required><br><br>
 
-            <label for="login_motdepasse">Mot de passe :</label>
-            <div class="password-input">
-                <input type="password" id="login_motdepasse" name="login_motdepasse" required>
-                <span class="password-toggle" onclick="togglePassword('login_motdepasse')">👁️</span>
-            </div>
+    <label for="login_motdepasse">Mot de passe :</label>
+    <div class="password-input">
+        <input type="password" id="login_motdepasse" name="login_motdepasse" required>
+        <span class="password-toggle" onclick="togglePassword('login_motdepasse')">👁️</span>
+    </div>
 
-            <br>
+    <br>
 
-            <input type="submit" value="Se connecter">
-        </form>
+    <input type="submit" value="Se connecter">
+</form>
+
 
         <!-- Lien pour la réinitialisation du mot de passe -->
         <p><a href="reset_password_form.php">Mot de passe oublié ? Réinitialisez-le ici</a></p>
