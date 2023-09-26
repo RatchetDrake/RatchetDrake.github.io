@@ -4,10 +4,10 @@ session_start();
 // Connexion à la base de données
 $serveur = "localhost";
 $utilisateur = "RatchetDrake";
-$motdepasse = "Azerty";
+$motdepasse_bd = "Azerty";
 $nomBaseDeDonnees = "projet";
 
-$connexion = new mysqli($serveur, $utilisateur, $motdepasse, $nomBaseDeDonnees);
+$connexion = new mysqli($serveur, $utilisateur, $motdepasse_bd, $nomBaseDeDonnees);
 
 if ($connexion->connect_error) {
     die("La connexion à la base de données a échoué : " . $connexion->connect_error);

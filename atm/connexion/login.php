@@ -1,6 +1,6 @@
 
 <?php
-require_once('../../function/db.php');
+require_once('../../db.php');
 session_start();
 if (!empty($_SESSION)) header('Location: index.php');
 ?>
@@ -19,6 +19,7 @@ if (!empty($_SESSION)) header('Location: index.php');
             <label for="password">Mot de passe :</label>
             <input type="password" name="password" id="password" required>
             <input type="submit" value="Se connecter">
+            <a href="./forgotpassword.php">Mot de passe oublié ?</a>
             <a href="./register.php">Vous n'avez pas de compte ?</a>
         </pre>
     </form>
