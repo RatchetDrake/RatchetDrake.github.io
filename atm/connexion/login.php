@@ -1,12 +1,19 @@
+
+<?php
+require_once('../../function/db.php');
+session_start();
+if (!empty($_SESSION)) header('Location: index.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
-    <link rel="stylesheet" href="../connexion.css">
+    <link rel="stylesheet" href="../../style/connexion.css">
 </head>
-
-<body>            <pre>
+<body>
+    <form action="" method="post">
+        <pre>
             <label for="username">Pseudo :</label>
             <input type="text" name="username" id="username" required>
             <label for="password">Mot de passe :</label>
@@ -17,14 +24,13 @@
     </form>
     <?php 
     if (isset($_POST) && !empty($_POST)) {
-        $select = $bdd->prepare('SELECT * FROM users WHERE username=? AND password=?');
+        $select = $bdd->prepare('SELECT * FROM users WHERE (username=:login OR email=:login) AND password=:pass');
         $select->execute(array(
-            $_POST['username'],
-            sha1($_POST['password'])
+            'login' => $_POST['username'],
+            'pass' => sha1($_POST['password'])
         ));
         $select = $select->fetch(PDO::FETCH_ASSOC);
         if (!empty($select)) {
-            session_start();
             $_SESSION = $select;
             header('Location: index.php');
         } else
