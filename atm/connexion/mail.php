@@ -1,4 +1,5 @@
 <?php
+
 require "./PHPMailer/PHPMailerAutoload.php";
 
 function GenerateToken($length) { // 10
@@ -8,15 +9,17 @@ function GenerateToken($length) { // 10
 
 function SendEmail($id, $token, $email) {
     function smtpmailer($to, $from, $from_name, $subject, $body) {
-        $mail = new PHPMailer();
+        $mail = new PHPMailer();        
+
         $mail->isSMTP();
         $mail->SMTPAuth = true;
 
-        $mail->SMTPSecure = 'ssl';
-        $mail->Host = 'smtp.gmail.com';
-        $mail->Port = 465;
+        $mail->Host = 'smtp-mail.outlook.com';
+        $mail->Port = 587;   
+        $mail->SMTPSecure = 'tls';    
+
         $mail->Username = $from;
-        $mail->Password = "DWWMauboue";
+        $mail->Password = 'DWWMauboue';
 
         $mail->isHTML();
         $mail->From = $from;
@@ -26,14 +29,15 @@ function SendEmail($id, $token, $email) {
         $mail->Subject = $subject;
         $mail->Body = $body;
         $mail->addAddress($to);
-        
+
         if (!$mail->Send()) {
             echo "Le mail ne c'est pas envoyé ressayer plus tard";
-            echo $mail->Send();
+            echo $mail->ErrorInfo;
         } else {
             echo "Le mail c'est envoyé avec succés";
         }
+
     }
     $msg = "Lien pour réinitialiser votre mot de passe : http://localhost/cours_php/TamakiYagami.github.io/exo/connexion/reset.php?id=$id&token=$token";  
-    smtpmailer($email, 'dwwm.auboue@gmail.com', 'DWWM', "Réinitialiser votre mot de passe", $msg);                               
+    smtpmailer($email, 'dwwm.auboue@hotmail.com', 'DWWM', "Réinitialiser votre mot de passe", $msg);                               
 }
