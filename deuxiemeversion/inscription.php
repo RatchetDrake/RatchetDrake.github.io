@@ -35,7 +35,29 @@
 
         // Fonction pour valider le domaine de l'adresse email
         function est_domaine_valide($email) {
-            $domaines_valides = array('gmail.com', 'outlook.com', 'yahoo.com');
+            $domaines_valides = array(
+            'gmail.com', 
+            'outlook.com', 
+            'yahoo.com',
+            'hotmail.com',
+            'hotmail.fr',
+            'aol.com',
+            'icloud.com',
+            'protonmail.com',
+            'mail.com',
+            'zoho.com',
+            'yandex.com',
+            'live.com',
+            'live.fr',
+            'gmx.com',
+            'inbox.com',
+            'me.com',
+            'fastmail.com',
+            'disroot.org',
+            'tutanota.com',
+            'riseup.net',
+            // Ajoutez d'autres domaines au besoin
+        );
             $email_parts = explode('@', $email);
             $domaine = end($email_parts);
             return in_array($domaine, $domaines_valides);
