@@ -11,7 +11,7 @@ function GenerateToken($length) { // 10
     return substr(str_shuffle(str_repeat($token, $length)), 0, $length);
 }
 
-function SendEmail($id, $token, $email) {
+function SendEmail($id, $token, $email, $msg, $objet, $name) {
     function smtpmailer($to, $from, $from_name, $subject, $body) {
         $mail = new PHPMailer();        
 
@@ -42,6 +42,6 @@ function SendEmail($id, $token, $email) {
         }
 
     }
-    $msg = "Lien pour réinitialiser votre mot de passe : http://localhost/cours_php/TamakiYagami.github.io/exo/connexion/reset.php?id=$id&token=$token";  
-    smtpmailer($email, 'dwwm.auboue@hotmail.com', 'DWWM', "Réinitialisation du mot de passe", $msg);                               
+    // $msg = "Lien pour réinitialiser votre mot de passe : http://localhost/cours_php/TamakiYagami.github.io/exo/connexion/reset.php?id=$id&token=$token";  
+    smtpmailer($email, 'dwwm.auboue@hotmail.com', $name, $objet, $msg);                               
 }
