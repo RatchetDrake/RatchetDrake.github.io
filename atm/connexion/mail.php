@@ -32,7 +32,6 @@ function SendEmail($id, $token, $email) {
 
         if (!$mail->Send()) {
             echo "Le mail ne c'est pas envoyé ressayer plus tard";
-            echo $mail->ErrorInfo;
         } else {
             echo "Le mail c'est envoyé avec succés";
         }

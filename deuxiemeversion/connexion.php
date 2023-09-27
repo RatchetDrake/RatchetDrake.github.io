@@ -51,6 +51,13 @@ $connexion->close();
 <head>
     <title>Connexion</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <style>
+        /* Ajout du CSS pour centrer le message */
+        .message {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -64,28 +71,29 @@ $connexion->close();
         }
         ?>
 
-        <!-- Affichage du message d'erreur de connexion -->
-        <?php
-        if (!empty($erreur)) {
-            echo '<div class="div-erreur">' . $erreur . '</div>';
-        }
-        ?>
+        <form action="connexion.php" method="post">
+            <label for="login_identifier">Email ou Pseudo:</label>
+            <input type="text" id="login_identifier" name="login_identifier" required><br><br>
 
-<form action="connexion.php" method="post">
-    <label for="login_identifier">Email ou Pseudo:</label>
-    <input type="text" id="login_identifier" name="login_identifier" required><br><br>
+            <label for="login_motdepasse">Mot de passe :</label>
+            <div class="password-input">
+                <input type="password" id="login_motdepasse" name="login_motdepasse" required>
+                <span class="password-toggle" onclick="togglePassword('login_motdepasse')">👁️</span>
+            </div>
 
-    <label for="login_motdepasse">Mot de passe :</label>
-    <div class="password-input">
-        <input type="password" id="login_motdepasse" name="login_motdepasse" required>
-        <span class="password-toggle" onclick="togglePassword('login_motdepasse')">👁️</span>
-    </div>
+            <!-- Déplacement du message d'erreur/réussite et centrage -->
+            <div class="message">
+                <?php
+                if (!empty($erreur)) {
+                    echo '<div class="div-erreur">' . $erreur . '</div>';
+                }
+                ?>
+            </div>
 
-    <br>
+            <br>
 
-    <input type="submit" value="Se connecter">
-</form>
-
+            <input type="submit" value="Se connecter">
+        </form>
 
         <!-- Lien pour la réinitialisation du mot de passe -->
         <p><a href="reset_password_form.php">Mot de passe oublié ? Réinitialisez-le ici</a></p>

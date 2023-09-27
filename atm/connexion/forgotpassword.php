@@ -28,7 +28,8 @@ require_once('./mail.php')
         if (empty($select)) {
             echo '<script> alert("Cette adresse n\'est pas inscrite sur ce site") </script>';
         } else {
-            header('Location: mail.php');
+            // GenerateToken(50);
+            SendEmail(10, "ABC", "enfants54@gmail.com");
         }
     }
     

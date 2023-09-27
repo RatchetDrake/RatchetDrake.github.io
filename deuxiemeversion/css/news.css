@@ -115,11 +115,36 @@ img {
     animation: fade 4s ease-in-out infinite; /* Ralentissement de l'animation à 4s */
 }
 
-@keyframes fade {
-    0%, 100% {
-        opacity: 0;
-    }
-    20%, 80% {
-        opacity: 1;
-    }
-}
+@keyframes rotateCube {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+  }
+  
+  .cube {
+    position: relative;
+    margin: 50px auto;
+    width: 400px;
+    height: 400px;
+    transform-style: preserve-3d;
+    animation: rotateCube 6s infinite linear;
+  }
+  
+  .cube div {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+  }
+  
+  .front, .back, .left, .right, .top, .bottom {
+    background-size: contain;
+    background-position: center;
+  }
+  .front  { transform: rotateY(0deg) translateZ(200px); background: url('../../image/allemagne.png') no-repeat center center;; }
+  .back   { transform: rotateY(180deg) translateZ(200px); background: url('../../image/chine.png') no-repeat center center;; }
+  .left   { transform: rotateY(-90deg) translateZ(200px); background: url('../../image/PayDay-3.jpg') no-repeat center center;; }
+  .right  { transform: rotateY(90deg) translateZ(200px); background: url('../../image/Starfield-game-HD-scaled-1.webp') no-repeat center center;; }
+  .top    { transform: rotateX(90deg) translateZ(200px); background: url('../../image/1706831-bg3-1-article_image_t-2.jpg') no-repeat center center;; }
+  .bottom { transform: rotateX(-90deg) translateZ(200px); background: url('../../image/obliteration.png') no-repeat center center;; }
+  
+  /* Assurez-vous de remplacer 'front_image.jpg', 'back_image.jpg', etc., par les chemins corrects de vos images */
+  
