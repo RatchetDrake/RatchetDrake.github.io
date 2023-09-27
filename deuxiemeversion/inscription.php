@@ -53,16 +53,19 @@ function est_domaine_valide($email) {
     return in_array($domaine, $domaines_valides);
 }
 
-// Connexion à la base de données
+// Paramètres de connexion à la base de données
 $serveur = "localhost";
 $utilisateur = "RatchetDrake";
 $motdepasse_bd = "Azerty";
 $nomBaseDeDonnees = "projet";
 
-$connexion = new mysqli($serveur, $utilisateur, $motdepasse_bd, $nomBaseDeDonnees);
-
-if ($connexion->connect_error) {
-    die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+try {
+    // Connexion à la base de données avec PDO
+    $connexion = new PDO("mysql:host=$serveur;dbname=$nomBaseDeDonnees", $utilisateur, $motdepasse_bd);
+    // Configure PDO to throw exceptions on error
+    $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("La connexion à la base de données a échoué : " . $e->getMessage());
 }
 
 // Initialiser la variable pour stocker les messages d'erreur
@@ -91,11 +94,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Vérifier l'unicité du pseudo et de l'adresse e-mail
     $stmt = $connexion->prepare("SELECT * FROM utilisateurs WHERE pseudo = ? OR email = ?");
-    $stmt->bind_param("ss", $pseudo, $email);
-    $stmt->execute();
-    $resultat = $stmt->get_result();
+    $stmt->execute([$pseudo, $email]);
+    $resultat = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    while ($row = $resultat->fetch_assoc()) {
+    foreach ($resultat as $row) {
         if ($row['pseudo'] === $pseudo) {
             $erreur = "Le pseudo est déjà utilisé. Veuillez en choisir un autre.";
         }
@@ -103,8 +105,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $erreur = "L'adresse e-mail est déjà utilisée. Veuillez en choisir une autre.";
         }
     }
-
-    $stmt->close();
 
     // Vérifier le domaine de l'adresse e-mail
     if (!est_domaine_valide($email)) {
@@ -118,22 +118,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Requête SQL préparée pour insérer les données dans la table 'utilisateurs'
         $stmt = $connexion->prepare("INSERT INTO utilisateurs (pseudo, email, motdepasse) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $pseudo, $email, $motdepasse_hache);
+        $stmt->execute([$pseudo, $email, $motdepasse_hache]);
 
-        if ($stmt->execute()) {
-            // Inscription réussie, stocker le pseudo dans la session
-            $_SESSION['pseudo'] = $pseudo;
-            $stmt->close();
-            $connexion->close();
-            header("Location: index.php");
-            exit();
-        } else {
-            $erreur = "Erreur lors de l'inscription : " . $stmt->error;
-        }
+        // Inscription réussie, stocker le pseudo dans la session
+        $_SESSION['pseudo'] = $pseudo;
+        header("Location: index.php");
+        exit();
     }
 }
 
-$connexion->close();
 ?>
 
 <!DOCTYPE html>
@@ -146,7 +139,7 @@ $connexion->close();
     <div class="container">
         <h2>Inscription</h2>
 
-        <form action="inscription.php" method="post" onsubmit="return validateForm()">
+        <form action="inscription.php" method="post">
             <label for="pseudo">Pseudo :</label>
             <input type="text" id="pseudo" name="pseudo" required minlength="5"><br><br>
 
@@ -180,7 +173,7 @@ $connexion->close();
         <p>Déjà un compte ? <a href="connexion.php">Connectez-vous ici</a>.</p>
 
         <!-- Lien vers la réinitialisation du mot de passe -->
-        <p>Mot de passe oublié ? <a href="reset_password_form.php">Réinitialiser le mot de passe</a></p>
+        <p>Mot de passe oublié ? <a href="./mail/forgotpassword.php">Réinitialiser le mot de passe</a></p>
     </div>
 
     <script>
@@ -191,10 +184,6 @@ $connexion->close();
             } else {
                 passwordInput.type = "password";
             }
-        }
-
-        function validateForm() {
-            // Votre code de validation ici
         }
     </script>
 </body>

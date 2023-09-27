@@ -50,6 +50,7 @@ input[type="password"] {
 .div-erreur {
     color: red;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 input[type="submit"] {

@@ -1,10 +1,7 @@
-
-
 <?php
 require_once('../../db.php');
-require_once('./mail.php')
+require_once('./mail.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,8 +25,14 @@ require_once('./mail.php')
         if (empty($select)) {
             echo '<script> alert("Cette adresse n\'est pas inscrite sur ce site") </script>';
         } else {
-            // GenerateToken(50);
-            SendEmail(10, "ABC", "enfants54@gmail.com");
+            $token = GenerateToken(50);
+            $update = $bdd->prepare('UPDATE users SET token=? WHERE email=? AND id=?');
+            $update->execute(array(
+                $token,
+                $_POST['email'],
+                $select[0]['id']
+            ));
+            SendEmail($select[0]['id'], $token, $_POST['email']);
         }
     }
     

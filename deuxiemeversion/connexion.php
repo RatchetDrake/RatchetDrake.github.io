@@ -1,16 +1,19 @@
 <?php
 session_start();
 
-// Connexion à la base de données
+// Paramètres de connexion à la base de données
 $serveur = "localhost";
 $utilisateur = "RatchetDrake";
 $motdepasse_bd = "Azerty";
 $nomBaseDeDonnees = "projet";
 
-$connexion = new mysqli($serveur, $utilisateur, $motdepasse_bd, $nomBaseDeDonnees);
-
-if ($connexion->connect_error) {
-    die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+try {
+    // Connexion à la base de données avec PDO
+    $connexion = new PDO("mysql:host=$serveur;dbname=$nomBaseDeDonnees", $utilisateur, $motdepasse_bd);
+    // Configure PDO to throw exceptions on error
+    $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("La connexion à la base de données a échoué : " . $e->getMessage());
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,32 +21,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $motdepasse = $_POST['login_motdepasse'];
 
     // Requête SQL pour vérifier les informations de connexion (using email or pseudo)
-    $sql = "SELECT * FROM utilisateurs WHERE email = ? OR pseudo = ?";
+    $sql = "SELECT * FROM utilisateurs WHERE email = :identifier OR pseudo = :identifier";
     $stmt = $connexion->prepare($sql);
-    $stmt->bind_param("ss", $identifier, $identifier);
+    $stmt->bindParam(':identifier', $identifier);
     $stmt->execute();
-    $resultat = $stmt->get_result();
+    $resultat = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($resultat->num_rows == 1) {
-        $row = $resultat->fetch_assoc();
-        if (password_verify($motdepasse, $row['motdepasse'])) {
-            // Connexion réussie, stockez le pseudo dans la session
-            $_SESSION['pseudo'] = $row['pseudo'];
-            // Rediriger vers la page principale après connexion réussie
-            header("Location: index.php");
-            exit();
-        } else {
-            $erreur = "La connexion a échoué. Veuillez vérifier vos informations d'identification.";
-        }
+    if ($resultat && password_verify($motdepasse, $resultat['motdepasse'])) {
+        // Connexion réussie, stockez le pseudo dans la session
+        $_SESSION['pseudo'] = $resultat['pseudo'];
+        // Rediriger vers la page principale après connexion réussie
+        header("Location: index.php");
+        exit();
     } else {
         $erreur = "La connexion a échoué. Veuillez vérifier vos informations d'identification.";
     }
-
-    $stmt->close();
 }
 
-// Fermer la connexion à la base de données
-$connexion->close();
 ?>
 
 <!DOCTYPE html>
@@ -96,7 +90,7 @@ $connexion->close();
         </form>
 
         <!-- Lien pour la réinitialisation du mot de passe -->
-        <p><a href="reset_password_form.php">Mot de passe oublié ? Réinitialisez-le ici</a></p>
+        <p><a href="../deuxiemeversion/mail/forgotpassword.php">Mot de passe oublié ? Réinitialisez-le ici</a></p>
 
         <p>Pas encore de compte ? <a href="inscription.php">Inscrivez-vous ici</a>.</p>
     </div>
