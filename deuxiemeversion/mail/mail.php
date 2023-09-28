@@ -39,10 +39,10 @@ function SendEmail($email, $id, $token) {
     $mail->Host = 'smtp-mail.outlook.com';
     $mail->Port = 587;
     $mail->SMTPSecure = 'tls';
-    $mail->Username = 'ratchetdtest2@outlook.fr'; // Ajustez avec votre adresse email
+    $mail->Username = 'ratchetdtest3@outlook.fr'; // Ajustez avec votre adresse email
     $mail->Password = 'Azertyuiop@123'; // Ajustez avec votre mot de passe email
     $mail->CharSet = 'utf-8';
-    $mail->setFrom('ratchetdtest2@outlook.fr', 'RatchetDrake'); // Ajustez avec votre nom
+    $mail->setFrom('ratchetdtest3@outlook.fr', 'RatchetDrake'); // Ajustez avec votre nom
     $mail->addAddress($email);
 
     $mail->Subject = $subject;

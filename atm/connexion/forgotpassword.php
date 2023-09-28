@@ -17,6 +17,7 @@ require_once('./mail.php');
         <input type="email" name="email" id="email" required>
         <input type="submit" value="Envoyer le lien">
     </form>
+    <a href="./login.php">Connexion</a>
     <?php 
     if (isset($_POST) && !empty($_POST)) {
         $select = $bdd->prepare('SELECT * FROM users WHERE email=?');
@@ -32,7 +33,8 @@ require_once('./mail.php');
                 $_POST['email'],
                 $select[0]['id']
             ));
-            SendEmail($select[0]['id'], $token, $_POST['email']);
+            $msg = "Lien pour réinitialiser votre mot de passe : http://localhost/RatchetDrake.github.io-main/atm/connexion/reset.php?id=" . $select[0]['id'] . "&token=$token";  
+            SendEmail($token, $_POST['email'], $msg, 'Réinitialisation du mot de passe', 'DWWM');
         }
     }
     
