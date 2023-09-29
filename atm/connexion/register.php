@@ -39,42 +39,44 @@ require_once('./mail.php')
         </pre>
     </form>
     <?php
-    if (isset($_POST) && !empty($_POST)) { /* !empty($_POST) = count($_POST) !== 0 */
+      if (isset($_POST) && !empty($_POST)) { /* !empty($_POST) = count($_POST) !== 0 */
         $select = $bdd->prepare("SELECT * FROM users WHERE username=? OR email=?");
         $select->execute(array($_POST['username'], $_POST['email']));
         $select = $select->fetchAll();
         if (empty($select)) {
-            $insert = $bdd->prepare('INSERT INTO users(prenom, nom, email, username, genre, password) VALUE (?, ?, ?, ?, ?, ?);');
+            $token = GenerateToken(50);
+
+            $insert = $bdd->prepare('INSERT INTO users(prenom, nom, email, username, genre, password, token) VALUE (?, ?, ?, ?, ?, ?, ?);');
             $insert->execute(array(
                 $_POST['firstname'],
                 $_POST['lastname'],
                 $_POST['email'],
                 $_POST['username'],                
                 $_POST['genre'],
-                sha1($_POST['password'])
+                sha1($_POST['password']),
+                $token
             ));
-            $token = GenerateToken(50);
-            $msg = "Lien pour vérifier votre adresse mail : http://localhost/RatchetDrake.github.io-main/atm/connexion/verify.php?id=" . $select[0]['id'] . "&token=$token";  
-            SendEmail($_POST['email'], $msg, "Validation Adresse Mail", 'DWWM');
-
-            header("Location: login.php");
-        } else 
-            echo '<script> alert("Ce pseudo ou l\'addresse email sont déja utilisé donc vous devez en utiliser un autre qui ne soit pas le même mais qui ne comporte pas de caractère spécial parce que ca ne peux pas fonctionner et donc si vous ne faite pas ca ne pourra toujours pas fonctioner parce que vous êtes vraiment nul ! Mais sinon pourquoi vous voulez vous créer un compte alors que le site est nul et même pas encore fini") </script>';
-
-    }
-    ?>
-    <br><br><br><br><br><br><br><br><br><br>
-    <script>
-        function ChangeValue() {
-            let Password = document.getElementById('password')
-            let confirmPassword = document.getElementById('confirm_password')
             
-            if (Password.value == confirmPassword.value)                
-                confirmPassword.setCustomValidity('')
-            else                 
-                confirmPassword.setCustomValidity('Les mots de passe doivent être identique')      
-        }
-    </script>        
+            $msg = "Lien pour vérifier votre adresse mail : http://localhost/RatchetDrake.github.io-main/atm/connexion/verify.php?token=$token";  
+                SendEmail($_POST['email'], $msg, "Validation Adresse Mail", 'DWWM');
 
-</body>
-</html>
+                header("Location: login.php");
+            } else 
+                echo '<script> alert("Ce pseudo ou l\'addresse email sont déja utilisé donc vous devez en utiliser un autre qui ne soit pas le même mais qui ne comporte pas de caractère spécial parce que ca ne peux pas fonctionner et donc si vous ne faite pas ca ne pourra toujours pas fonctioner parce que vous êtes vraiment nul ! Mais sinon pourquoi vous voulez vous créer un compte alors que le site est nul et même pas encore fini mais t\'es con ou QUOI LA ???? Mais alors t\'aurai pas un zob dans le cul et aussi t\'aurai une chmère et aussi un snikkers puis aussi un coca cherry ? Mais du-coup tu répond ?") </script>';
+        }
+        ?>
+        <br><br><br><br><br><br><br><br><br><br>
+        <script>
+            function ChangeValue() {
+                let Password = document.getElementById('password')
+                let confirmPassword = document.getElementById('confirm_password')
+                
+                if (Password.value == confirmPassword.value)                
+                    confirmPassword.setCustomValidity('')
+                else                 
+                    confirmPassword.setCustomValidity('Les mots de passe doivent être identique')      
+            }
+        </script>        
+    
+    </body>
+    </html>

@@ -34,11 +34,9 @@ require_once('./mail.php');
                 $select[0]['id']
             ));
             $msg = "Lien pour réinitialiser votre mot de passe : http://localhost/RatchetDrake.github.io-main/atm/connexion/reset.php?id=" . $select[0]['id'] . "&token=$token";  
-            SendEmail($token, $_POST['email'], $msg, 'Réinitialisation du mot de passe', 'DWWM');
+            SendEmail($_POST['email'], $msg, 'Réinitialisation du mot de passe', 'DWWM');
         }
-    }
-    
-    
+    }  
     ?>
 </body>
 </html>

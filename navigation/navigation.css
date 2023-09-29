@@ -1,0 +1,55 @@
+li {
+    display: inline-block;
+}
+
+ol {
+    list-style-type: none;
+}
+
+nav {
+    background-color: aqua;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.navbar {
+    background: linear-gradient(to right, red, orange);
+    border-radius: 0 40% 10% 40%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espacement entre les éléments */
+    backdrop-filter: blur(10px); /* Ajout de l'effet flou */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    color: white;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold; /* Rendre le texte en gras */
+}
+
+.nav-links a:hover {
+    color: #ccc;
+}
+
+.nav-links span {
+    padding: 0 10px; /* Ajuster le padding pour le span */
+    height: 80%;
+}

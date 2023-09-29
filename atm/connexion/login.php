@@ -3,6 +3,9 @@
 require_once('../../db.php');
 session_start();
 if (!empty($_SESSION)) header('Location: index.php');
+if (!empty($_GET)) {
+    if ($_GET['success'] == 'reset') echo '<script> alert("Votre mot de passe à été modifié") </script>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,7 +13,7 @@ if (!empty($_SESSION)) header('Location: index.php');
     <meta charset="UTF-8">
     <title>Connexion</title>
     <link rel="stylesheet" href="../connexion.css">
-</head>
+    </head>
 <body>
     <form action="" method="post">
         <pre>
@@ -32,8 +35,11 @@ if (!empty($_SESSION)) header('Location: index.php');
         ));
         $select = $select->fetch(PDO::FETCH_ASSOC);
         if (!empty($select)) {
-            $_SESSION = $select;
-            header('Location: index.php');
+            if ($select['confirm']) {
+                $_SESSION = $select;
+                header('Location: index.php');
+            } else 
+                echo "<script> alert('L\'adresse mail n\'est pas vérifier') </script>";
         } else
             echo "<script> alert('Le mot de passe ou le pseudo n\'est pas bon') </script>";
     }
