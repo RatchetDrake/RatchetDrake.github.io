@@ -29,7 +29,7 @@ function SendEmail($email, $id, $token) {
     $subject = "Réinitialisation de mot de passe";
     $message = "Bonjour,\n\n";
     $message .= "Cliquez sur le lien suivant pour réinitialiser votre mot de passe : ";
-    $message .= "http://localhost/reset_password.php?id=$id&token=$token\n\n";
+    $message .= "http://localhost/cours_php/RatchetDrake.github.io/RatchetDrake.github.io/deuxiemeversion/mail/reset.php?id=$id&token=$token\n\n";
     $message .= "Cordialement,\nVotre équipe";
 
     // Configuration de l'envoi du mail

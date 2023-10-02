@@ -26,16 +26,24 @@
         </ul>
     </nav> -->
 
-    <body>
-    <div class="navbar">
+    <!-- <div class="navbar">
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
             <a href="#support">Support</a>
             <span>|</span> <!-- Utiliser un span pour le symbole '|' -->
-            <a href="#search"><box-icon name='search' color='#f7fffb' ></box-icon></a>
+            <!-- <a href="#search"><box-icon name='search' color='#f7fffb' ></box-icon></a>
         </div>
-    </div>
-</body>
+    </div> -->
+    <br><br><br><br><br>
+    <nav class="exo">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#"><span id="search"></span><box-icon name='search' color="#fff"></box-icon></a></li>
+        </ul>
+    </nav>
 </html>
