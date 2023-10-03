@@ -1,21 +1,3 @@
-
-<?php
-session_start();
-
-function verifierConnexion() {
-    // Vérifier si l'utilisateur est connecté
-    if (!isset($_SESSION['pseudo'])) {
-        // Rediriger vers la page de connexion
-        header("Location: connexion.php");
-        exit();
-    }
-}
-
-// Appeler la fonction au début de chaque page protégée
-verifierConnexion();
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
