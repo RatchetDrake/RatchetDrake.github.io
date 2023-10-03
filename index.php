@@ -12,11 +12,6 @@
         <button onclick="redirectToSignUp()">S'inscrire</button>
     </div>
 
-    <script>
-        function redirectToSignUp() {
-            // Remplacez l'URL ci-dessous par l'URL de votre page d'inscription
-            window.location.href = "deuxiemeversion/inscription.php";
-        }
-    </script>
+    
 </body>
 </html>
