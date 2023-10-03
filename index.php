@@ -1,1 +1,0 @@
-<?php include('deuxiemeversion/inscription.php'); ?>
