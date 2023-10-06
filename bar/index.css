@@ -1,0 +1,155 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://media.giphy.com/media/SRq7tYiOKCsbwRftRy/giphy-downsized-large.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+h1, h2 {
+    color: #4a4a4a;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+/* Style des messages */
+.message {
+    background-color: #e8f5e9;
+    border-left: 5px solid #4caf50;
+    margin-bottom: 20px;
+}
+
+/* Style des formulaires */
+form {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+a {
+    color: #4caf50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Styles pour la barre de navigation */
+nav {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+
+nav a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+/* Styles pour le footer */
+footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+form {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px; /* Largeur maximale pour le formulaire */
+    margin: 0 auto; /* Centrer le formulaire horizontalement */
+}label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333; /* Couleur du texte pour les labels */
+}
