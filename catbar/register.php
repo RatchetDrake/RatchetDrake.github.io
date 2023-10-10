@@ -9,18 +9,20 @@ require_once('./dbCat.php');
     <title>Inscription</title>
 </head>
 <body>
-    <?php include 'inc/header.php'; ?>
+    <?php 
+    $_GET['page'] = 'register';
+    include 'inc/header.php'; ?>
     <br><br><br><br>
 
     <form method="post">
         <label for="username">Username :</label>
-        <input type="text" name="username" id="username">
+        <input type="text" name="username" id="username" required>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" required>
         <label for="password">Mot de passe :</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
         <label for="password">Confirmer le btrd(e) :</label>
-        <input type="password" oninput='ChangeValue()' name="Confirm_password" id="Confirm_password">
+        <input type="password" oninput='ChangeValue()' name="Confirm_password" id="Confirm_password" required>
         <input type="submit" value="Créer mon compte">
     </form>
 
@@ -30,7 +32,7 @@ require_once('./dbCat.php');
             $insert->execute(array (
                 $_POST['username'],
                 $_POST['email'],
-                password_hash($_POST['password'], PASSWORD_ARGON2ID)
+                password_hash($_POST['password'], PASSWORD_ARGON2I)
             ));
 
             header('Location: login.php');
