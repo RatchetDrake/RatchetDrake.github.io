@@ -137,7 +137,7 @@ $chats = $pdo->query("SELECT * FROM chats")->fetchAll();
                 <form method="post">
                     Chat: <select name="chat_id">
                         <?php foreach($chats as $chat): ?>
-                            <option value="<?php echo $chat['chat_id']; ?>"><?php echo $chat['description']; ?></option>
+                            <option value="<?php echo $chat['chat_id']; ?>"><?php echo $chat['nom'] . ' - ' . $chat['description']; ?></option>
                         <?php endforeach; ?>
                     </select>
                     Nouvelle description: <textarea name="new_description"></textarea>
@@ -151,7 +151,7 @@ $chats = $pdo->query("SELECT * FROM chats")->fetchAll();
                 <form method="post">
                     Chat: <select name="chat_id">
                         <?php foreach($chats as $chat): ?>
-                            <option value="<?php echo $chat['chat_id']; ?>"><?php echo $chat['description']; ?></option>
+                            <option value="<?php echo $chat['chat_id']; ?>"><?php echo $chat['nom'] . ' - ' . $chat['description']; ?></option>
                         <?php endforeach; ?>
                     </select>
                     <input type="submit" name="supprimer_chat" value="Supprimer">

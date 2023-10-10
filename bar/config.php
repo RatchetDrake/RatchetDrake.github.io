@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'cours';
+$db   = 'Exo';
 $user = 'RatchetDrake';
 $pass = 'Azerty';
 $charset = 'utf8mb4';

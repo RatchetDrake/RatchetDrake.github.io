@@ -1,0 +1,120 @@
+/* Styles généraux */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    background-size: cover;  /* Assurez-vous que le GIF couvre toute la page */
+
+}
+
+body:hover {
+    background-color: red;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* En-tête */
+.header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 5px solid #555;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    animation: fadeInDown 2s;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Galerie de chats */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Boutons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Pied de page */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 5px solid #555;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #ddd;
+}
+.header {
+    /* ... autres styles ... */
+    background-image: url('https://media.giphy.com/media/GeimqsH0TLDt4tScGw/giphy.gif');
+    background-repeat: repeat;  /* Répéter le GIF horizontalement et verticalement */
+    background-position: center center;  /* Centrer le GIF */
+    min-height: 200px;  /* Hauteur minimale pour l'en-tête pour s'assurer que le GIF est bien visible */
+    background-color: #333;  /* Couleur d'arrière-plan pour remplir les espaces vides si nécessaire */
+}
