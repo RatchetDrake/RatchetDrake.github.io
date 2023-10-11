@@ -9,7 +9,7 @@ function TestID($bdd) {
     $id = Chatleatoire();
     $select = $bdd->prepare('SELECT * FROM cat WHERE id=?');
     $select->execute(array(
-        $id
+        (int)$id
     ));
     $select = $select->rowCount();
     if ($select > 0) {
@@ -19,10 +19,9 @@ function TestID($bdd) {
 }
 if (isset($_POST) && !empty($_POST)) {
     
-
     $insert = $bdd->prepare('INSERT INTO cat (id, prenom, color, photo, description, sexe) VALUES (?, ?, ?, ?, ?, ?)');
     $insert->execute(array(
-        TestID($bdd),
+        (int)TestID($bdd),
         $_POST['prenom'],
         $_POST['color'],
         $_POST['photo'],
@@ -48,18 +47,9 @@ if (isset($_POST) && !empty($_POST)) {
 
 
 
-  header('Location: paneladmin.php'); 
+
+   header('Location: paneladmin.php'); 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
