@@ -1,5 +1,5 @@
 <?php 
-require_once('./dbCat.php');
+require_once('inc/dbCat.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
