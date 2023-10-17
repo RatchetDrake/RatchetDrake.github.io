@@ -186,8 +186,72 @@ echo Capital('Portugal') . '<br>';
         };
 
         echo InverseString('Bonjour tout le monde') . "<br>";
-        echo InverseString('Je s\'appel groot');
-    ?>
+        echo InverseString('Je s\'appel groot'). "<br>";
+
+
+# Créer une fonction qui ce nomme Acronyme qui a comme paramètre une chaine de caractère 
+        # Et qui envoie que les initial des mot de la phrase
+
+        function Acronyme($phrase) {
+            $resultat = "";
+            $tab_phrase = explode(" ", $phrase);
+
+            foreach($tab_phrase as $mot) {
+                $resultat = $resultat . strtoupper($mot[0]); 
+            }
+
+            return $resultat;
+        }
+
+        echo Acronyme("Jeudi une langue interviens entre notre epave sortie toute petite dorénavant");
+
+        # Créer une fonction AffichageTableau qui prend en argument un tableau et qui va devoir afficher un
+        # tableau en html sur notre page
+
+        
+function AffichageTableau($tab) {
+    echo "<table border='1'>";  // Début du tableau HTML
+
+    // En-têtes du tableau
+    echo "<thead>";
+    echo "<tr>";
+    foreach ($tab['mdupond'] as $key => $value) {
+        echo "<th>" . ucfirst($key) . "</th>";  // Convertir la première lettre en majuscule
+    }
+    echo "</tr>";
+    echo "</thead>";
+
+    // Contenu du tableau
+    echo "<tbody>";
+    foreach ($tab as $username => $details) {
+        echo "<tr>";
+        foreach ($details as $value) {
+            echo "<td>" . $value . "</td>";
+        }
+        echo "</tr>";
+    }
+    echo "</tbody>";
+
+    echo "</table>";  // Fin du tableau HTML
+}
+
+$tab = [
+    'mdupond' => [
+        'prenom' => 'Martin',
+        'nom' => 'Dupond',
+        'age' => 25,
+        'ville' => 'Paris'
+    ]
+];
+
+// Exemple d'utilisation
+AffichageTableau($tab);
+
+?>
+
+Cette fonction génère un tableau HTML avec des en-têtes basés sur les clés du tableau associatif et remplit le tableau avec les valeurs correspondantes. Vous pouvez copier et coller ce code dans votre environnement PHP et l'exécuter pour voir le tableau HTML affiché sur votre page.
+
+    
 
 </body>
 </html>
