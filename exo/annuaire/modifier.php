@@ -74,8 +74,8 @@ if (!$user) {
     Adresse: <input type="text" name="adresse" value="<?= $user['adresse'] ?>"><br>
     Date de Naissance: <input type="date" name="date_de_naissance" value="<?= $user['date_de_naissance'] ?>"><br>
     Sexe:<br>
-    Homme: <input type="radio" name="sexe" value="Homme" <?= ($user['sexe'] === 'h') ? 'checked' : '' ?>><br>
-    Femme: <input type="radio" name="sexe" value="Femme" <?= ($user['sexe'] === 'f') ? 'checked' : '' ?>><br>
+    Homme: <input type="radio" name="sexe" value="h" <?= ($user['sexe'] === 'h') ? 'checked' : '' ?>><br>
+    Femme: <input type="radio" name="sexe" value="f" <?= ($user['sexe'] === 'f') ? 'checked' : '' ?>><br>
     Description: <textarea name="description"><?= $user['description'] ?></textarea><br>
     <input type="submit" value="Mettre à jour">
 </form>

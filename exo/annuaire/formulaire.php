@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $codepostal = $_POST['codepostal'];
     $adresse = $_POST['adresse'];
     $date_de_naissance = $_POST['date_de_naissance'];
-    $sexe = $_POST['sexe'] === 'homme' ? 'h' : 'f';
+    $sexe = $_POST['sexe'];
     $description = $_POST['description'];
 
     // Validation du numéro de téléphone (seulement des chiffres)
@@ -55,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     Adresse: <input type="text" name="adresse"><br>
     Date de Naissance: <input type="date" name="date_de_naissance"><br>
     Sexe: 
-    Homme: <input type="radio" name="sexe" value="homme">
-    Femme: <input type="radio" name="sexe" value="femme"><br>
+    Homme: <input type="radio" name="sexe" value="h">
+    Femme: <input type="radio" name="sexe" value="f"><br>
     Description: <textarea name="description"></textarea><br>
     <input type="submit" value="Enregistrement">
     <a href="list.php">Voir la liste des entrées</a>

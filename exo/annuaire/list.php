@@ -44,9 +44,9 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
                     <td><?= $row['adresse'] ?></td>
                     <td><?= $row['date_de_naissance'] ?></td>
                     <td>
-                        <?php if ($row['sexe'] === 'Homme') : ?>
+                        <?php if ($row['sexe'] === 'h') : ?>
                             Homme
-                        <?php elseif ($row['sexe'] === 'Femme') : ?>
+                        <?php elseif ($row['sexe'] === 'f') : ?>
                             Femme
                         <?php else : ?>
                             Autre
