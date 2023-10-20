@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .flexbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .media {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        .text {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .images-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .image {
+            flex: 1;
+            max-width: 300px;
+            height: auto;
+        }
+
+        .image.small {
+            max-width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flexbox">
+        <div class="media">
+            <h3>Flexbox</h3>
+            <div>Audio</div>
+            <div>Vidéo</div>
+            <div>Image</div>
+        </div>
+        <div class="text">
+            <h2>La Balise <code>&lt;img&gt;</code>: L'image sur une page html</h2>
+            <p>C'est avec l'attribut src que l'on indique le chemin vers le fichier voulu.</p>
+            <p><code>&lt;img class="fit-picture" src="/media/examples/grapefruit.jpg" alt="Grapefruit"&gt;</code></p>
+        </div>
+        <div class="images-container">
+            <img class="image" src="../../../image/PngItem_860181.png" alt="Image 1">
+            <img class="image small" src="../../../image/580b57fcd9996e24bc43c341.png" alt="Image 2">
+            <img class="image" src="../../../image/street-fighter-v-street-fighter-ii-the-world-warrior-street-fighter-iv-street-fighter-iii-street-fighter-b8aef788569415dde2b90cb350602ed4.png" alt="Image 3">
+        </div>
+    </div>
+</body>
+</html>

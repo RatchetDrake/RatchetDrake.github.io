@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .video-container {
+            max-width: 640px; /* Largeur maximale souhaitée */
+            max-height: 360px; /* Hauteur maximale souhaitée */
+            overflow: hidden; /* Masquer le débordement de la vidéo si nécessaire */
+        }
+
+        .video-container video {
+            width: 100%; /* La vidéo occupe toute la largeur du conteneur */
+            height: auto; /* La hauteur est automatiquement ajustée pour conserver les proportions d'origine */
+        }
+    </style>
+</head>
+<body>
+    <div class="flexbox">
+        <div class="media">
+            <h3>Flexbox</h3>
+            <div>Audio</div>
+            <div>Vidéo</div>
+            <div>Image</div>
+        </div>
+        <div class="text">
+            <h2>La Balise <code>&lt;a&gt;</code>: Les liens hypertexte</h2>
+            <p>C'est avec l'attribut href que l'on indique le chemin vers le fichier voulu.</p>
+            <p><code>&lt;a href="chemin_vers_fichier"&gt;</code> intitulé du lien <code>&lt;/a&gt;</code></p>
+        </div>
+        <div class="video-container">
+            <video controls>
+                <source src="https://www.onirikal.com/videos/mp4/reel_2019.mp4" type="video/mp4">
+                Votre navigateur ne prend pas en charge la lecture de la vidéo.
+            </video>
+        </div>
+    </div>
+</body>
+</html>

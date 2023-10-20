@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(255,242,204,255);
+}
+
+.flexbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid black;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.media {
+    display: flex;
+    justify-content: space-between;
+    width: 135%;
+    margin-bottom: 30px;
+    background-color: aqua;
+    border: 1px solid black;
+}
+
+.text {
+    border: 1px dashed black;
+    padding: 20px;
+    width: 90%;
+    margin-bottom: 30px;
+    background-color: #FF0000;
+}
+
+.shapes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.square, .rectangle, .wide-rectangle, .narrow-rectangle, .circle {
+    margin: 5px;
+}
+
+.square, .rectangle, .wide-rectangle, .narrow-rectangle {
+    background-color: #C0C0C0; /* gris */
+}
+
+.circle {
+    background-color: #FF0000; /* rouge */
+    border-radius: 50%;
+}
+
+.square {
+    width: 70px;
+    height: 70px;
+}
+
+.circle {
+    width: 90px;
+    height: 90px;
+}
+
+.rectangle {
+    width: 140px;
+    height: 60px;
+}
+
+.wide-rectangle {
+    width: 190px;
+    height: 40px;
+    background-color: #0000FF; /* bleu */
+}
+
+.narrow-rectangle {
+    width: 90px;
+    height: 30px;
+    background-color: #FFFF00; /* jaune */
+}
+
+code {
+    background-color: #F5F5F5;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
