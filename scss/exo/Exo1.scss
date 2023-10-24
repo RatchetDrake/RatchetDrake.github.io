@@ -1,0 +1,42 @@
+$primary-color: #3498db;
+$secondary-color: #2c3e50;
+
+#logo {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  background-color: $primary-color;
+}
+
+h1, p {
+  text-align: center;
+  color: $secondary-color;
+}
+
+.button-container, .zone {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.button, .text-box {
+  display: inline-block;
+  background-color: $primary-color;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.text-box {
+  height: 600px;
+  width: 25%;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+  overflow: hidden;
+}
+.p1{
+    margin-top: 30%;
+}
+body{
+    background-color: rgb(70, 0, 70);
+}
