@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="scss/main.css">
+    <link rel="stylesheet" href="scss/Correctionexo/main.css">
     <title>Index OF</title>
 </head>
 <body theme="jour">
@@ -21,7 +21,18 @@
 
     <div class="text"></div>
 
+    <div class="centre">
+        <span>Spin</span>
+        <div class="fleche"></div>
+    </div>
 
+    <div class="circle">
+        <?php
+            for ($i=1; $i <= 36; $i++) { 
+                echo "<div class='box-$i'><div class='choix' id='b-$i'> <span>$i</span> </div></div>";
+            }
+        ?>
+    </div>
     <!-- 
         blanc       => Texte entre balise qui est forcément affiché sur la page
         bleu foncé  => Constructeur (construit tout ce que leur demande)
@@ -58,7 +69,5 @@
                         "BOI ". 1       = BOI 1
                         "BOI" . 1 . "T" = BOI1T
     -->
-    
-    
 </body>
 </html>
