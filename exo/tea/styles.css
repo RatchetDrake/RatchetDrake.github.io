@@ -53,7 +53,12 @@ ul.navbar li a {
 .search-bar {
     display: inline-block; /* Afficher la barre de recherche en ligne avec les autres éléments de la barre de navigation */
     margin-left: 20px; /* Ajouter de l'espace à gauche de la barre de recherche */
-    width: 150px; /* Réduire la largeur à 150 pixels */
+    width: 100px; /* Réduire la largeur à 150 pixels */
+}
+#search {
+    width: 150px;
+    border: 2px solid black;
+    height: 90px;
 }
 /* Style pour les liens des réseaux sociaux à droite de la page */
 .social-links {
@@ -73,7 +78,7 @@ ul.navbar li a {
 
 /* Style pour la barre de recherche */
 .search-bar input[type="text"] {
-    padding-right: 30px; /* Ajustez la valeur pour créer de l'espace à droite pour l'icône */
+    padding-right: 1px; /* Ajustez la valeur pour créer de l'espace à droite pour l'icône */
     background-image: url('loupe.png'); /* Remplacez 'loupe.png' par le chemin de votre image de loupe */
     background-repeat: no-repeat;
     background-position: right center; /* Placez l'icône à droite et au centre */

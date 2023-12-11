@@ -34,7 +34,7 @@
 
         <!-- Placez la barre de recherche dans la barre de navigation -->
         <li class="search-bar">
-            <input type="text" placeholder=" Search         &#128269;">
+            <input id="search" type="text" placeholder=" Search                           &#128269;">
         </li>
     </ul>
     <div class="carousel">
