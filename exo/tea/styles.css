@@ -63,6 +63,7 @@ ul.navbar li a {
 /* Style pour les liens des réseaux sociaux à droite de la page */
 .social-links {
     float: right; /* Placer les liens des réseaux sociaux à droite de la page */
+    margin-right: 2px;
 }
 
 /* Style pour les images des réseaux sociaux */
