@@ -1,0 +1,36 @@
+section {
+    display: flex;
+}
+article {
+    margin: 15px;
+    overflow: hidden;
+    width: 20%;
+    height: 250px;
+    background-color: rgb(238, 106, 167);
+}
+article .hidden {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    bottom: -250px;
+    transition: bottom .3s;
+
+    color: antiquewhite;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+article .hidden h2 {
+    margin-top: 0;
+    padding-top: 25px;
+}
+article .hidden button {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: black;
+    color: antiquewhite;
+    border: none;
+}
+
+article:hover .hidden {    
+    bottom: 0;
+}

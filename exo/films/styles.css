@@ -1,0 +1,236 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.films-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.film {
+  margin: 10px;
+  text-align: center;
+}
+
+.film img {
+  width: 150px; /* ou la largeur que vous souhaitez */
+  height: auto;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+footer img {
+  height: 1.5em; /* Hauteur de l'image basée sur la taille de la police du texte */
+  width: auto; /* Garde le ratio de l'image */
+  margin-right: 10px; /* Espace entre l'image et le texte */
+}
+
+.navbar {
+  background-image: linear-gradient(to right, #cccccc, #333333); /* Dégradé du gris foncé (#333333) vers le gris clair (#cccccc) */
+  padding: 12px 0;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white; /* ou une autre couleur qui contraste bien avec le gris */
+  margin-left: 10px; /* Espace entre les liens */
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ccc; /* Changement de couleur au survol */
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px; /* ajustez selon vos besoins */
+  margin-bottom: 20px; /* ajustez selon vos besoins */
+}
+
+.contact-section {
+  background-color: #333; /* Couleur de fond de la section de contact */
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre horizontalement les éléments enfants */
+  margin: 0 auto; /* Centre le conteneur horizontalement */
+  max-width: 1000px; /* Ou la largeur maximale que vous souhaitez pour le conteneur */
+  width: 90%; /* Ajustez en fonction de la largeur que vous voulez */
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form-group-inline {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.form-group label {
+  text-align: right;
+  margin-right: 10px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 95%; /* Adaptez en fonction de la largeur désirée */
+  margin-left: 30px;
+}
+
+.form-group button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: gray;
+  cursor: pointer;
+  width: 100%; /* ou une largeur fixe selon vos besoins */
+  margin-left: 30px;
+}
+
+.form-group button:hover {
+  background-color: #666;
+}
+
+/* Rendre les éléments du form-group-inline en ligne et centrés */
+.form-group-inline .form-group {
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Style pour les input pour qu'ils s'alignent correctement avec les labels dans .form-group-inline */
+.form-group-inline .form-group input {
+  width: calc(100% - 40px); /* Ajustez selon la marge désirée */
+}
+
+#name, #email{
+  width: 350px;
+  margin-left: 30px;
+}
+
+.film {
+  text-align: center;
+  margin: 10px;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.hover-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Fond sombre semi-transparent */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Alignez le contenu vers le haut */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  overflow-y: auto; /* Active le défilement vertical si nécessaire */
+  max-height: 100%; /* Hauteur maximale correspondant à celle de l'image */
+  padding: 10px; /* Ajoute un rembourrage autour du contenu */
+  padding-top: 40px; /* Un rembourrage supplémentaire en haut pour éviter que le texte ne soit coupé */
+}
+
+.image-container:hover .hover-content {
+  opacity: 1;
+}
+
+.image-container h2, .image-container p, .image-container button {
+  margin-bottom: 15px;
+}
+
+.image-container button {
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.image-container button:hover {
+  background-color: #666;
+}
+
+@media screen and (max-width: 600px) {
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 100%; /* Permet à la section de contact de s'étendre sur toute la largeur */
+  }
+
+  .form-group-inline,
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .form-group-inline .form-group,
+  .form-group {
+    width: 100%; /* Assure que tous les champs de formulaire ont la même largeur */
+  }
+
+  .form-group label {
+    align-self: flex-start; /* Aligner les labels à gauche */
+    margin-left: 15px; /* Ajuster en fonction de la mise en page */
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea,
+  .form-group button {
+    width: calc(100% - 30px); /* Largeur ajustée pour les marges */
+    margin: 10px 15px; /* Marges pour aligner avec les autres champs */
+  }
+
+  #name, #email {
+    /* Pas besoin de styles spécifiques si les styles généraux s'appliquent */
+  }
+
+  .form-group button {
+    margin-top: 10px; /* Espacement au-dessus du bouton */
+  }
+}

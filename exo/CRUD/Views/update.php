@@ -9,6 +9,12 @@
     <?php
     include '../Controllers/db.php';
 
+    if (!isset($_SESSION['user_id'])) {
+        // Si l'utilisateur n'est pas connecté, redirigez-le vers la page de connexion dans le répertoire "Views".
+        header("Location: ../Views/login.php");
+        exit();
+    }
+
     if (isset($_GET['id'])) {
         $user_id = $_GET['id'];
 

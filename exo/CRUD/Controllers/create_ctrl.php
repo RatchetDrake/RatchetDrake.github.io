@@ -7,21 +7,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $_POST["description"];
 
     try {
-        // Préparation de la requête SQL
-        $sql = "INSERT INTO user (pseudo, mot_de_passe, description) VALUES (:pseudo, :mot_de_passe, :description)";
-        $stmt = $pdo->prepare($sql);
+        // Vérifier si l'utilisateur existe déjà
+        $checkSql = "SELECT id FROM user WHERE pseudo = :pseudo";
+        $checkStmt = $pdo->prepare($checkSql);
+        $checkStmt->bindParam(':pseudo', $pseudo);
+        $checkStmt->execute();
 
-        // Liaison des paramètres
-        $stmt->bindParam(':pseudo', $pseudo);
-        $stmt->bindParam(':mot_de_passe', $mot_de_passe);
-        $stmt->bindParam(':description', $description);
-
-        // Exécution de la requête
-        if ($stmt->execute()) {
-            header("Location: ../Views/index.php"); // Rediriger vers la liste des utilisateurs
-            exit();
+        if ($checkStmt->rowCount() > 0) {
+            echo "Un utilisateur avec le même pseudo existe déjà.";
         } else {
-            echo "Erreur lors de l'exécution de la requête.";
+            // Préparation de la requête SQL
+            $insertSql = "INSERT INTO user (pseudo, mot_de_passe, description) VALUES (:pseudo, :mot_de_passe, :description)";
+            $stmt = $pdo->prepare($insertSql);
+
+            // Liaison des paramètres
+            $stmt->bindParam(':pseudo', $pseudo);
+            $stmt->bindParam(':mot_de_passe', $mot_de_passe);
+            $stmt->bindParam(':description', $description);
+
+            // Exécution de la requête
+            if ($stmt->execute()) {
+                header("Location: ../Views/index.php"); // Rediriger vers la liste des utilisateurs
+                exit();
+            } else {
+                echo "Erreur lors de l'exécution de la requête.";
+            }
         }
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();

@@ -1,0 +1,38 @@
+.conteneur {
+  width: 300px;
+  margin: auto;
+  overflow: hidden;
+}
+
+article {
+  position: relative;
+  border: 10px solid #ccc;
+
+  background-color: pink;
+  overflow: hidden;
+  height: 200px;
+  transition: height 0.5s ease-in-out;
+}
+
+
+.contenuCache {
+  transform: translateY(100%);
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Alignement horizontal du texte */
+  background-color: gray;
+  
+}
+
+article:hover .contenuCache {
+  transform: translateY(0);
+}
+
+article button {
+  margin-top: 10px;
+}
