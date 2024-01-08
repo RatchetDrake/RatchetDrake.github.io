@@ -1,0 +1,212 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.background-image {
+    background-image: url('../images/5f121c12-067d-4de9-bd6d-256f8c38b8b2.webp');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Styles pour la barre de navigation */
+.navbar {
+    background-color: rgba(51, 51, 51, 0.7); /* Couleur de fond avec opacité */
+    position: absolute; /* Pour voir le body à travers */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 106px; /* Augmentation de 1/3 de sa taille actuelle */
+    line-height: 150px; /* Ajustement de la ligne de texte */
+    text-align: center; /* Centre les éléments de la barre de navigation */
+}
+
+/* Style pour le conteneur de la barre de navigation */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Style pour le menu déroulant (hamburger menu) */
+.menu-dropdown {
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    position: relative;
+}
+
+.menu-dropdown .line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+}
+
+/* Style pour le logo à gauche */
+.navbar .logo {
+    font-size: 24px; /* Taille de police augmentée */
+    color: white;
+}
+
+/* Style pour la barre de recherche */
+.navbar .search {
+    position: relative;
+    display: flex; /* Pour aligner les éléments horizontalement */
+    align-items: center; /* Pour centrer verticalement les éléments */
+    justify-content: flex-end; /* Pour aligner les éléments à droite */
+}
+
+.categories a:hover {
+    margin-top: -50px;
+    height: 100px;
+    background-color: red; /* Fond rouge au survol */
+    color: white; /* Texte en blanc au survol */
+    border-radius: 5px; /* Coins arrondis */
+    text-decoration: none; /* Suppression du soulignement */
+    display: inline-block; /* Pour que l'élément occupe tout l'espace du lien */
+}
+
+/* Style pour le menu déroulant */
+.menu-dropdown select {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+    margin-right: 10px; /* Espacement entre le menu déroulant et la barre de recherche */
+}
+.categories{
+    width: 200%;
+}
+.categories a {
+    color: aqua;
+    width: 10%;
+   margin-left: 5%;
+
+}body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.background-image {
+    background-image: url('../images/5f121c12-067d-4de9-bd6d-256f8c38b8b2.webp');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Styles for the navigation bar */
+.navbar {
+    background-color: rgba(51, 51, 51, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 106px;
+    line-height: 150px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 24px;
+    color: white;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.categories a {
+    color: aqua;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.separator {
+    color: white;
+}
+
+.menu-dropdown select {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+#search input[type="text"] {
+    padding: 5px;
+}
+
+.welcome-area {
+    text-align: center;
+    padding-top: 200px; /* Adjust this value as needed */
+    margin-left: -450px;
+}
+
+.welcome-text {
+    font-size: 48px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d9534f;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #c9302c;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    text-decoration: none;
+    margin: 0 10px;
+    color: #333;
+}
+
+.social-media a:hover {
+    color: #555;
+}
+
+/* Additional adjustments as needed */
+/* Style pour la zone de bienvenue */
+
+.welcome-text {
+    font-size: 48px;
+    color: #ff0000;
+    margin-bottom: 20px;
+}
+
+.welcome-area a {
+    display: block; /* Pour centrer les éléments blocs */
+    margin: 0 auto; /* Pour centrer horizontalement */
+    max-width: 600px; /* Ajustez la largeur maximale au besoin */
+}
+
+/* Autres styles restants */
