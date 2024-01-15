@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Koala</title>
+</head>
+<body>
+    <div class="boite">
+        <div class="oreilleGauche">
+            <div class="oreilleGaucheInt"></div>
+        </div>
+        
+        <div class="oreilleDroite">
+            <div class="oreilleDroiteInt"></div>
+        </div>
+
+        <div class="grand-cheveux"></div>
+        <div class="petit-cheveux"></div>
+        
+        <div class="visage">
+            <div class="oeilGauche">
+                <div class="pupilleGauche"></div>
+                <div class="paupiereGauche"></div>
+            </div>
+            <div class="oeilDroit">
+                <div class="pupilleDroite"></div>
+                <div class="paupiereDroite"></div>
+            </div>
+            <div class="nez"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var pupilleGauche = document.querySelector('.pupilleGauche');
+            var pupilleDroite = document.querySelector('.pupilleDroite');
+
+            document.addEventListener('mousemove', function (eventData) {
+                var x = eventData.clientX / window.innerWidth - 0.5;
+                var y = eventData.clientY / window.innerHeight - 0.5;
+
+                var maxTranslation = 90;
+
+                var translateX = x * maxTranslation;
+                var translateY = y * maxTranslation;
+
+                pupilleGauche.style.transform = 'translate(' + translateX + 'px, ' + translateY + 'px)';
+                pupilleDroite.style.transform = 'translate(' + translateX + 'px, ' + translateY + 'px)';
+            });
+        });
+    </script>
+</body>
+</html>

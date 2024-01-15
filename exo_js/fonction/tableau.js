@@ -24,3 +24,13 @@ MonTableau.push("Plat à la Fin");
 // Afficher le tableau après les modifications
 console.log("\nTableau après les modifications :");
 console.log(MonTableau);
+
+// Ajouter un nouvel élément au début du tableau
+MonTableau.unshift("Nouveau Plat au Début");
+
+// Ajouter un nouvel élément à la fin du tableau
+MonTableau.push("Nouveau Plat à la Fin");
+
+// Afficher le tableau après les ajouts
+console.log("\nTableau après les ajouts :");
+console.log(MonTableau);

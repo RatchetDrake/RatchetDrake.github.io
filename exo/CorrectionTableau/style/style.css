@@ -1,0 +1,59 @@
+table {
+    border: 3px ridge gray;
+    margin: 180px auto 0;
+    border-spacing: 10px;
+    width: 50%;    
+}
+td, th {
+    border: 1px solid black;
+    padding: 5px;
+}
+thead tr:first-child th {
+    background-color: aqua;
+    width: 6%;
+}
+thead tr:last-child th {
+    width: 39%;
+}
+th {
+    background-color: lightgray;
+}
+input {
+    width: 15px;
+    border: none;
+    outline: none;
+
+}
+tbody tr:last-child td {
+    text-align: center;
+    background-color: yellowgreen;
+}
+
+tr table {
+    margin: 0;
+    border-spacing: 3px;
+    width: 100%;
+}
+tr table * {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+tr table tr th {
+    width: 35px;
+}
+tr table tr:last-child td {
+    background-color: transparent;
+}
+tr table tr th:first-child {
+    width: 110px;
+}
+caption {
+    caption-side: bottom;
+}
+caption span {
+    font-weight: bold;
+}
+td[rowspan="2"] {
+    text-align: center;
+}
