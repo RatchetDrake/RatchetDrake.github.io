@@ -87,8 +87,13 @@ console.log(MonTableau)
 // reverseTab([1, 1, 2, 2, 3]) ➞ [3, 2, 2, 1, 1]
 
 function reverseTab(tab) {
-    page 
+    let reversed = [];
+    for (let i = tab.length - 1; i >= 0; i--) {
+        reversed.push(tab[i]);
+    }
+    return reversed;
 }
+
 
 console.log(reverseTab([1, 2, 3]));
 console.log(reverseTab([1, 1, 2, 2, 3]));
