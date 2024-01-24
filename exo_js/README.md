@@ -18,7 +18,7 @@ complètement Statique
 
 # -B Concaténation
 
-Concaténation sert ajouter certain élément a une chaîne de caractère 
+Concaténation sert ajouter/additioner certain élément a une chaîne de caractère 
 par exemple : 
 
 Je suis développeur + de site web
@@ -410,7 +410,7 @@ console.log(Texte.split(' ')) // Découpe à chaque occurrence du caractère de 
 // Renvoie donc ['Bonjour,', 'je', 'suis', 'de', 'bonne', 'humeur']
 ```
 
-## -B [... <Variable>]
+## -B [... <Variable>] Opérateur spread
 Converti une chaîne de caractère en tableau a chaque occurrence 
 ```js
 var Texte = "Bonjour, je suis de bonne humeur"
@@ -728,9 +728,13 @@ function MaFonctionInterdite(transmetteur, receveur, message, date){
     this.getReceveur = function() {
         return receveur
     }
+    this.setDate = function(time) {
+        date = time
+    }
 }
 var Kévin = new MaFonctionInterdite("Didi", 'Kévin', "Tu viens au PMU ?", '15:00:00-22-01-2024')
 console.log(Kévin.getTransmetteur()) // Me retourne Didi
+Kévin.setDate(15:00:00-23-01-2024) // Je re défini Date
 Kévin.LeMessage = "Tu viens à l’apéro ?"
 ```
 
@@ -751,12 +755,67 @@ function Personne(prenom, nom, age, adresse, tel, email, sexe, caractere) {
 }
 function Etudiant(fiche, note) {
 
-    Personne.call(this, fiche.Prenom, fiche.Nom
-    , fiche.Age, fiche.Adresse, fiche.Tel
-    , fiche.Email, fiche.Sexe, fiche.Caractere);
+    Personne.call(this, fiche.Prenom, fiche.Nom, fiche.Age, fiche.Adresse, fiche.Tel, fiche.Email, fiche.Sexe, fiche.Caractere);
 
     this.LaFicheDeLétudiant = fiche;
     this.LaNoteEst = note;
 
+}
+```
+
+### -B Objet Conditionnelle 
+Un objet conditionnelle est un objet ou va lui demander si il existe avant d'être utiliser
+Exemple : 
+```js
+let EleveA = {
+    Classe: "Terminale A", 
+    Matiere: {
+        math: 10
+        science: 15
+    }
+}
+let EleveB = {
+    Classe: "Terminale B"
+}
+
+console.log(ObjetA.Matiere.math) // me renvoie 10
+console.log(ObjetB.Matiere.math) // me fait une erreur
+
+console.log(EleveB?.Matiere?.math) // me renvoie undefined
+console.log(EleveB?.Matiere?.math ?? "Absent") // me renvoie Absent
+
+console.log(EleveA?.Matiere?.math ?? "Absent") // me renvoie 10
+```
+
+### -B Suppresion de propriété dans un objet
+Il est possible de supprimer une seul propriété dans un objet en utilisant `delete`
+Exemple: 
+```js
+let Eleve = {
+    nom: 'Doe',
+    prenom: 'John',
+    age: 24,
+    profession: 'Developer',
+    birthDate: '05/06/1978'
+}
+delete(Eleve.birthDate)
+// Je supprime birthDate dans Eleve
+```
+
+### -B Vérifier si un propriété existe
+On peut vérifier si une propriété d'un objet existe avec la fonction `hasOwnProperty`
+Exemple: 
+```js
+let Eleve = {
+    nom: 'Doe',
+    prenom: 'John',
+    age: 24,
+    profession: 'Developer',
+    birthDate: '05/06/1978'
+}
+if (Eleve.hasOwnProperty('age')) {
+    console.log("La propriété 'age' existe.")
+} else {
+    console.log("La propriété 'age' n'existe pas.")
 }
 ```
