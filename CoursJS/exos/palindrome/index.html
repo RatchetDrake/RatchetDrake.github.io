@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <script src="index.js"></script>
+    <title>Document</title>
+    <style>
+        input, button, p {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        input {
+            border: 1px solid rgb(201, 196, 196);
+        }
+        button {
+            border: none;
+            background-color: rgb(70, 172, 240);
+        }
+        p {
+            font-weight: bolder;
+            font-size: 1.7em
+        }
+    </style>
+</head>
+<body>
+    <div class="input-group mb-3">
+        <input type="text" placeholder="Saisir un texte" id="input">
+        <button onclick="TestePalindrome()">Vérifier si Plaindrome</button>
+        <p id="texte"></p>
+    </div>
+</body>
+</html>

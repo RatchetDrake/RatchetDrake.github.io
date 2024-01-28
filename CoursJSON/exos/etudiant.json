@@ -1,0 +1,48 @@
+[
+    "Vous avez un tableau d'etudiant un étudiant est caractérisé par : son nom, son age, ses cours (math, info, francais) Un des etudiant n'était pas présent en francais mais un etudiant à une note en physique Créer 5 etudiant",
+    {
+        "nom": "Dupont",
+        "age": 21,
+        "cours": {
+            "math": 17,
+            "info": 10,
+            "francais": 4
+        }
+    }, 
+    {
+        "nom": "Lemaitre",
+        "age": 19,
+        "cours": {
+            "math": 8,
+            "info": 16,
+            "francais": 18,
+            "physique": 13
+        }
+    },
+    {
+        "nom": "Robert",
+        "age": 18,
+        "cours": {
+            "math": 12,
+            "info": 8
+        }
+    },
+    {
+        "nom": "Jacques",
+        "age": 20,
+        "cours": {
+            "math": 15,
+            "info": 9,
+            "francais": 10
+        }
+    },
+    {
+        "nom": "Girard",
+        "age": 17,
+        "cours": {
+            "math": 16,
+            "info": 12,
+            "francais": 15
+        } 
+    }
+]

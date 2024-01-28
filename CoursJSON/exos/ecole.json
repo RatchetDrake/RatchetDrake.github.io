@@ -1,0 +1,55 @@
+{
+    "Poule De Lard": {
+        "_comment": "Créer une école avec plusieurs classes les classes on🖕 un nom, l'année en cours, un numero telephone, si elle est en cours, qui est la prof, et les éléves dans la classe",
+        "2B": {
+            "ClasseName": "2B",
+            "year": "2024-2025",
+            "phoneNumber": "0625478541",
+            "active": true,
+            "Professeur": {
+                "firstname": "Aurélien",
+                "lastname": "Leroy"
+            },
+            "eleves": [
+                {
+                    "firstname": "Jane",
+                    "lastname": "Doe"
+                },
+                {
+                    "firstname": "John",
+                    "lastname": "Smith"
+                },
+                {
+                    "firstname":"Emma",
+                    "lastname":"Watson"
+                }
+            ]
+
+        },
+        "3B": {
+            "ClasseName": "3B",
+            "year": "2023-2024",
+            "phoneNumber": 987654321,
+            "active": false,
+            "Professeur": {
+                "firstname": "Jacques",
+                "lastname": "Dupont"
+            },
+            "eleves": [
+                {
+                    "firstname": "Jane",
+                    "lastname": "Doe"
+                },
+                {
+                    "firstname": "John",
+                    "lastname": "Smith"
+                },
+                {
+                    "firstname":"Emma",
+                    "lastname":"Watson"
+                }
+            ]
+        }
+    }
+
+}

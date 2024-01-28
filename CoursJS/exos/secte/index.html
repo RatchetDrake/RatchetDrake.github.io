@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <script src="./index.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 10px;
+        }
+
+        table, tr{
+            border: 1px solid black;
+            text-align: center;
+        }
+        th {
+            background-color: rgb(19, 119, 181);
+            color: white;
+        }
+        input, table{
+            padding: 10px;
+            border-radius: 10px;
+        }
+        span {
+            color: blue;
+        }
+        tr:hover {
+            background-color: gray;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" name="name" id="name">
+        <input type="text" name="grade" id="grade">
+        <button onclick="AddMembre()" type="button">Ajouter un membre</button>
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Grade</th>
+        </tr>
+    </table>
+</body>
+</html>

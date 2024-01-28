@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            margin: 0 auto;
+            width: 700px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        p {
+            font-size: 3em;
+            border: 1px solid black;
+            padding: 10px 25px
+        }
+        button {
+            font-size: 1.5em;
+            border: none;
+            border-radius: 15px;
+            background-color: rgb(70, 172, 240);
+            color: aliceblue;
+            cursor: pointer;
+            padding: 5px 25px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <p id="Affichage">0 h : 0 min : 0 s : 0 ms</p>
+        <div>
+            <button id="startBtn" onclick="start()">Start</button>
+            <button id="stopBtn"  onclick="stop()">Stop</button>
+            <button id="resetBtn" onclick="reset()">Reset</button>
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>

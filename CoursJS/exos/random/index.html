@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <script src="index.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 10px;
+        }
+
+        table, tr{
+            border: 1px solid black;
+            text-align: center;
+        }
+        th {
+            background-color: rgb(19, 119, 181);
+            color: white;
+        }
+        input, table{
+            padding: 10px;
+            border-radius: 10px;
+        }
+        span {
+            color: blue;
+        }
+        tr:hover {
+            background-color: gray;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="name" placeholder="Saisir le nom">
+    <table id="table">
+        <tr>
+            <th>Noms</th>
+        </tr>
+    </table>
+    <p>La personne qui est gagnante est : <span id="winner"></span></p>
+    <button onclick="AddName()">Ajouter un nom</button>
+    <button onclick="Paul()">Tirage au sort</button>
+
+</body>
+</html>
