@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            resize: none;
+        }
+        fieldset {
+            width: 20%;
+    margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Faire le formulaire pour rajouter des taches -->
+    <form>
+        <pre>
+            <fieldset>
+                <legend>Ajout d'une tache: </legend>
+                <input type="text" name="titre" id="titre" placeholder="Titre">
+                <br>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+                <br>
+                <button type="button" onclick="CreateTache()">Créer la tâche</button>
+                <br>
+                <button type="button" onclick="ViewTaches()">Regarder les taches</button>
+            </fieldset>
+        </pre>
+    </form>
+    <div id="afficher"></div>
+    <!-- Et un bouton pour afficher dans la console toute les taches -->
+</body>
+</html>

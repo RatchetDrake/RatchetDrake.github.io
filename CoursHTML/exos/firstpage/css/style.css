@@ -1,0 +1,46 @@
+body {
+    background-color: rgb(192, 172, 58);
+    display: flex;
+}
+div:first-child {
+    width: 13%;
+}
+div:last-child {
+    width: 87%;
+}
+
+aside {
+    margin-top: 55px;
+    width: 100%;
+}
+nav {
+    list-style-type: none;
+    margin: 10px;
+}
+nav li {
+    margin: 10px;
+    width: 85%;
+    background-color: black;
+}
+
+nav li a {
+    font-size: 1.1em;
+    color: blue;
+    text-decoration: none;
+    background-color: antiquewhite;
+    padding: 10px;
+    width: 80%;
+    display: inline-block;
+}
+
+h1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2.5em;
+    color: blueviolet;
+}
+
+footer {
+    margin-top: 55px;
+    border-top: 1px solid black;
+    padding-top: 20px;
+}

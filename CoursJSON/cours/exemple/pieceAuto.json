@@ -5,7 +5,7 @@
         "prix": 60,
         "categorie": "Optiques",
         "image": "img/ampoule_led.jpg",
-        "description" : "Distnace d'éclairage : 100 mètres",
+        "description" : "Distance d'éclairage : 100 mètres",
         "disponible" : true
     },
     {
@@ -32,6 +32,7 @@
         "prix": 9.60,
         "categorie": "Freinage",
         "image": "img/liquide_de_frein.jpg",
+        "description": null,
         "disponible": true
     },
     {

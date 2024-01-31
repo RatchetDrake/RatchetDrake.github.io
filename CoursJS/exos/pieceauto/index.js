@@ -1,0 +1,50 @@
+const pieceAuto = [
+    {
+      "id": 1,
+      "nom": "Ampoule LED",
+      "prix": 60,
+      "categorie": "Optiques",
+      "image": "img/ampoule_led.jpg",
+      "description": "Distance d'éclairage : 100 mètres",
+      "disponible": true
+    },
+    {
+      "id": 2,
+      "nom": "Plaquette de frein",
+      "prix": 40,
+      "categorie": "Freinage",
+      "image": "img/plaquette_frein.png",
+      "description": "Une qualité de freinage optimale, par tous les temps.",
+      "disponible": true
+    },
+    {
+      "id": 3,
+      "nom": "Ampoule boite à gants",
+      "prix": 5.49,
+      "categorie": "Optiques",
+      "image": "img/ampoule_boite_a_gants.jpg",
+      "description": "Pour y voir clair dans l’habitacle.",
+      "disponible": false
+    },
+    {
+      "id": 4,
+      "nom": "Liquide de frein",
+      "prix": 9.60,
+      "categorie": "Freinage",
+      "image": "img/liquide_de_frein.jpg",
+      "description": "Aucune description, ne pas rajouter de propriété.",
+      "disponible": true
+    },
+    {
+      "id": 5,
+      "nom": "Balai d'essuie-glace",
+      "prix": 29.10,
+      "categorie": "Utilitaire",
+      "image": "img/balai_d_essuie_glace.jpg",
+      "description": "Performances d’essuyage au top ! Longueur : 550 mm.",
+      "disponible": true
+    }
+  ];
+  
+  console.log(pieceAuto); // Affiche l'objet JavaScript dans la console
+  
