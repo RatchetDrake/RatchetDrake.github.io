@@ -1,19 +1,32 @@
+/*
+Exercice : Création d'une classe Animal
+
+Créez une classe Animal avec les propriétés suivantes :
+    nom (une chaîne de caractères représentant le nom de l'animal)
+    age (un nombre entier représentant l'âge de l'animal)
+
+Ajoutez une méthode afficherDetails à la classe Animal qui affiche les détails 
+de l'animal (nom et âge) dans la console.
+
+Créez deux instances de la classe Animal avec des noms et des âges différents.
+
+Appelez la méthode afficherDetails pour afficher les détails de chaque animal.
+    
+*/
+
 class Animal {
-    constructor(nom, age) {
-        this.nom = nom;
-        this.age = age;
+    constructor(nom, age){
+        this.Nom = nom
+        this.Age = age
     }
 
     afficherDetails() {
-        console.log(`Nom de l'animal : ${this.nom}`);
-        console.log(`Âge de l'animal : ${this.age}`);
+        console.log(`L'animal est appelé ${this.Nom} et il a ${this.Age} ans.`)
     }
 }
 
-// Création de deux instances de la classe Animal
-const animal1 = new Animal("Chien", 3);
-const animal2 = new Animal("Chat", 5);
+const chat = new Animal('Mia', 6)
+const Autruche = new Animal('Johnny', 41)
 
-// Appel de la méthode afficherDetails pour afficher les détails de chaque animal
-animal1.afficherDetails();
-animal2.afficherDetails();
+chat.afficherDetails()
+Autruche.afficherDetails()

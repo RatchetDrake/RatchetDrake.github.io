@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
     <title>Document</title>
     <style>
         body {
@@ -25,51 +26,61 @@
             font-weight: bold;
             margin-bottom: 20px;
         }
+        .Ajout {
+            width: 15%;
+            position: absolute;
+        }
+        .Ajout form {
+            margin-bottom: 30px;
+        }
 
 
     </style>
 </head>
 <body>
-    <form method='post'>
-        <div class="description">Sélectionnez un fruit de la liste A pour l'ajouter à la liste B (votre panier).</div>
+    <div class="Ajout">
+        <form method="post">
+            <fieldset>
+                <legend>Ajout d'argent sur la carte kiwi</legend>
+                <label for="NbArgent">Nombre d'argent à rajouter :</label><br />
+                <input type="number" name="NbArgent" id="NbArgent" value="0"><br />
+                <button type="button" onclick="client.addMoney()">Rajouter argent</button>
+            </fieldset>
+        </form>
+        <form method="post">
+            <fieldset>
+                <legend>Ajout d'article</legend>
+                <label for="nom">Désignation de l'article :</label><br />
+                <input type="text" name="nom" id="nom"><br />
+                <label for="prix">Prix de l'article</label>
+                <input type="number" name="prix" id="prix"><br />
+                <button type="button" onclick="CreateArticle()">Ajouter article</button>
+            </fieldset>
+        </form>
+    </div>
+    <form method="post">
+        <p id="wallet">Votre portefeuille : <span></span> €</p>
+        <div class="description">Sélectionnez un fruit de l'inventaire pour l'ajouter à votre panier.</div>
 
-        <select id="listeA" multiple>
-            <option value="ananas">Ananas</option>
-            <option value="banane">Banane</option>
-            <option value="citron">Citron</option>
-            <option value="fraise">Fraise</option>
-            <option value="orange">Orange</option>
-            <option value="pomme">Pomme</option>
-            <option value="raisin">Raisin</option>
-            <option value="tomate">Tomate</option>
-            <option value="kiwi">Kiwi</option>
-            <option value="figue">Figue</option>
-            <option value="pasteque">Pastèque</option>
-            <option value="nefle">Nèfle</option>
-            <option value="mangue">Mangue</option>
-            <option value="cerise">Cerise</option>
-            <option value="framboise">Framboise</option>
-            <option value="coco">Noix-de-coco</option>
-            <option value="peche">Pêche</option>
-            <option value="mirabelle">Mirabelle</option>
-            <option value="groseille">Groseille</option>
+        <select id="inventaire" multiple onchange="Change()">
         </select>
 
-        <input type="number" name="quantite" id="quantite">
-        <button id="ajouter" disabled>Ajouter au panier</button>
+        <button id="ajouter" type="button" disabled>Ajouter au panier</button>
 
         <br>
 
-        <div class="description">Sélectionnez un fruit de la liste B (votre panier) pour le retirer.</div>
+        <div class="description">Sélectionnez un fruit de votre panier pour le mettre dans l'inventaire.</div>
 
         <!-- Donc ici j'ai mis le name en mode listB[] puisque on a plusieurs élément dans le select et on veux tous les récupèrer mais si on veux tous 
         les récupérer il faut que on est un tableau -->
-        <select id="listeB" name='listB[]' multiple></select>
+        <select id="panier" name='listB[]' multiple onchange="Change()"></select>
+        <button id="supprimer" type="button" disabled>Retirer du panier</button>        
+        <br>        
 
-        <button id="supprimer" disabled>Retirer du panier</button>
-        <br>
+        <p id="total">Total : <span></span> €</p><br>
+        <p id="error"></p><br>
 
-        <button id="buy" disabled>Acheter !</button>
+        <button id="buy" type="button" disabled>Acheter !</button>
 
     </form>
 </body>

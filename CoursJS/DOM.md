@@ -66,3 +66,18 @@ Exemple :
 ```js
 let MonSpan = document.getElementsByTagName("span") // Récupère toute les balise span
 ``` 
+
+### querySelector
+La méthode `querySelector` permet de récupérer l'unique élément correspondant au sélecteur CSS fourni, ou `null` si aucun élément ne correspond.
+```js
+let  PremierParagraphe = document.querySelector("p:first-of-type"); // Prend le premier paragraphe 
+```
+
+### querySelectorAll 
+La Méthode `querySelectorAll` permet de récupérer tout les élément correspondant au sélécteur CSS fourni. Me retourne un tableau de ces 
+éléments
+```js
+let ToutesLesBalisesDeLaPage = document.querySelectorAll("*"); // Tous les éléments de la page
+let TousLesParagraphes = document.querySelectorAll("p"); // Tous les paragraphes 
+let OptionChecked = document.querySelectorAll('option:checked') // Tout les option sélectionner
+```

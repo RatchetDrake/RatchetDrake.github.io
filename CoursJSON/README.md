@@ -106,3 +106,42 @@ fetch('./PieceAuto.json')
     })
 console.log(PieceAuto)
 ```
+
+## Fonction JSON en JavaScript
+Dans le JS il existe des fonction pour transformer des contenu objet et tableau en chaine de caractère ou l'inverse des chaine de caractère en tableau ou objet 
+
+### JSON.stringify 
+Cette fonction va string ifier (convertir en chaîne de caractères) votre objet ou tableau. Elle prend en paramètre votre objet/tableau et renvoi une chaine de caractère
+
+Exemple : 
+```js
+const monObjet = {
+    prenom: 'Pierre',
+    age: 30
+}
+const chaineJson = JSON.stringify(monObjet);
+console.log(chaineJson) // Me renvoie la chaine de caractère "{prenom: 'Pierre',  age: 30}"
+// Si j'avais juste fait un console.log de monObjet , cela m'aurait afficher l'objet lui même
+console.log(monObjet) // Me renvoie l'objet 
+// monObjet {
+//     prenom: "Pierre",
+//     age: 30
+// }
+```
+
+### JSON.parse 
+Cette fonction permet de convertir en Tableau/Objet une chaine de caractère Json. Elle prend comme paramètre une chaîne de caractères.
+C'est la fonction inverse de JSON.stringify
+
+Exemple : 
+```js
+const maChaine = '{"prenom": "Paul", "age" : 45}'
+const MonAutre = "Bonjour m'appelle paul j'ai 45 ans"
+
+let monObjetParse = JSON.parse(maChaine);
+console.log(monObjetParse) // Il me renvoie ma chaine de caractère en format objet
+
+// Alors que si je fait 
+let MonAutreObjet = JSON.parse(MonAutre)
+console.log(MonAutreObjet) // Il me faire une erreur parceque le texte n'est pas dans le format Json
+```

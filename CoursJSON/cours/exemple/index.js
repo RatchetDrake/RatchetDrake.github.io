@@ -64,4 +64,16 @@ let test = async function() {
     // Récupérer des valeurs de la variable PieceAuto et les afficher sur la page web
 }
 
-test()
+// test()
+
+
+
+const maChaine = '{"prenom": "Paul", "age" : 45}'
+const MonAutre = "Bonjour m'appelle paul j'ai 45 ans"
+
+let monObjetParse = JSON.parse(maChaine);
+console.log(monObjetParse) // Il me renvoie ma chaine de caractère en format objet
+
+// Alors que si je fait 
+let MonAutreObjet = JSON.parse(MonAutre)
+console.log(MonAutreObjet) // Il me faire une erreur parceque le texte n'est pas dans le format Json

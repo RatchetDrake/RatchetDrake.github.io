@@ -115,6 +115,14 @@ TableauExemple.slice(2, 5)
 // [4, 'a', 'b']
 ```
 
+## splice()
+Permet de modifier le tableau en retirant une à plusieurs valeurs
+La difference avec le slice, le splice modifie directement le tableau alors que le slice non
+Exemple :
+```js
+TableauExemple.splice(2, 3); // On retire les éléments de la position 2 jusqu'à 5 (car il y a 3 éléments entre ces positions)
+```
+
 ## indexOf()
 Permet de récupérer un élément bien précis dans un tableau
 

@@ -253,7 +253,7 @@ class MonSuperbeClubDeFootball {
         this.joueurs = []
     }        
     static nbMax = 11
-    DateAujourdhui() {
+    static DateAujourdhui() {
         const date = new Date();
         return `${date.getHours()}h${date.getMinutes()}h${date.getSeconds()}`;
     }
@@ -267,6 +267,6 @@ class MonSuperbeClubDeFootball {
 
 let Club = new MonSuperbeClubDeFootball()
 console.log(MonSuperbeClubDeFootball.nbMax)
-// console.log(MonSuperbeClubDeFootball.DateAujourdhui())
-console.log(Club.DateAujourdhui())
+console.log(MonSuperbeClubDeFootball.DateAujourdhui())
+// console.log(Club.DateAujourdhui())
 ```
