@@ -1,37 +1,40 @@
-// Créez la classe Personne
+/* 
+Créer une classe personne qui prend en attribut nom et age
+Avec une méthode afficheDetails  qui affiche le nom et l’age de la personne.
+
+Créer une classe étendu de personne qui s'appelle Etudiant qui prend un attribut niveau
+Avec la méthode afficheDetails qui affiche  les informations de la personne ainsi que son niveau d’étude.
+
+*/
+
 class Personne {
     constructor(nom, age) {
-      this.nom = nom;
-      this.age = age;
+        this.Nom = nom
+        this.Age = age
     }
-  
     afficherDetails() {
-      console.log(`Nom : ${this.nom}, Age : ${this.age}`);
+        return (`Le nom est ${this.Nom} et l'âge est ${this.Age} ans`);
     }
-  }
-  
-  // Créez la classe Etudiant qui étend Personne
-  class Etudiant extends Personne {
+}
+
+class Etudiant extends Personne {
     constructor(nom, age, niveau) {
-      super(nom, age);
-      this.niveau = niveau;
+        super(nom, age)
+        this.Niveau = niveau
     }
-  
     afficherDetails() {
-      super.afficherDetails(); // Appelez la méthode de la classe parente pour afficher le nom et l'âge
-      console.log(`Niveau d'étude : ${this.niveau}`);
+        // Le mot clé super permet d'appeler la méthode de la class parente (Personne)
+        return super.afficherDetails() + ` et le niveau d'étude est ${this.Niveau}`
     }
-  }
-  
-  // Instanciez un objet de la classe Personne
-  const personne1 = new Personne("Alice", 25);
-  
-  // Instanciez un objet de la classe Etudiant
-  const etudiant1 = new Etudiant("Bob", 20, "Licence");
-  
-  // Appelez la méthode pour afficher les détails de la personne
-  personne1.afficherDetails();
-  
-  // Appelez la méthode pour afficher les détails de l'étudiant
-  etudiant1.afficherDetails();
-  
+}
+// Instancier un objet de la classe Personne
+const personne1 = new Personne("Alice", 25);
+
+// Instancier un objet de la classe Etudiant
+const etudiant1 = new Etudiant("Bob", 20, "Licence");
+
+// Appeler la méthode pour afficher les détails de la personne
+console.log(personne1.afficherDetails())
+
+// Appeler la méthode pour afficher les détails de l'étudiant
+console.log(etudiant1.afficherDetails())
