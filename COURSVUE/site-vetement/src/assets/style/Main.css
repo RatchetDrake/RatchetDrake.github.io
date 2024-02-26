@@ -1,0 +1,17 @@
+main h2 {
+    text-align: center;
+    color: var(--ColorText);
+    font-size: 2.7em;
+}
+.swiper {
+    width: 100%;
+    height: 65vh;
+}
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.swiper-slide img {
+    height: 70%;
+}

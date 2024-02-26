@@ -1,0 +1,18 @@
+:root {
+    --BodyBackground: #fff;
+    --HeaderBackground: #193784;
+    --NavBackground: rgba(25, 55, 132, 0.8);
+    --ColorText: black;
+}
+body[Banane='dark'] {
+    --BodyBackground: #2c2c2c;
+    --HeaderBackground: rgb(13, 31, 76);
+    --NavBackground: rgba(19, 44, 109, 0.8);
+    --ColorText: white;
+}
+body {
+    background-color: var(--BodyBackground);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
