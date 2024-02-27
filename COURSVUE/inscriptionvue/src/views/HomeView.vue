@@ -8,63 +8,66 @@
         <div class="haut">
           <div class="test">
             <label for="firstName">Prénom*</label>
-            <input type="text" id="firstName" v-model="form.firstName" required>
+            <input type="text" id="firstName" v-model="form.firstName" required :disabled="submitted">
           </div>
           <div class="test">
             <label for="lastName">Nom*</label>
-            <input type="text" id="lastName" v-model="form.lastName" required>
+            <input type="text" id="lastName" v-model="form.lastName" required :disabled="submitted">
           </div>
         </div>
 
         <div class="mail">
           <label for="email">Email address*</label>
-          <input type="email" id="email" v-model="form.email" required>
+          <input type="email" id="email" v-model="form.email" required :disabled="submitted">
         </div>
 
         <label class="label">Sexe</label>
         <div class="sexe">
-
           <div>
-            <input type="radio" id="male" value="male" v-model="form.gender">
+            <input type="radio" id="male" value="male" v-model="form.gender" :disabled="submitted">
             <label for="male">Je suis un homme</label>
           </div>
           <div>
-            <input type="radio" id="female" value="female" v-model="form.gender">
+            <input type="radio" id="female" value="female" v-model="form.gender" :disabled="submitted">
             <label for="female">Je suis une femme</label>
           </div>
         </div>
+        
         <div class="mail">
           <label for="institution">Institution*</label>
-          <input type="text" id="institution" v-model="form.institution" required>
+          <input type="text" id="institution" v-model="form.institution" required :disabled="submitted">
         </div>
+        
         <div class="haut">
           <div class="test">
             <label class="label" for="address">Adresse*</label>
-            <input type="text" id="address" v-model="form.address" required>
+            <input type="text" id="address" v-model="form.address" required :disabled="submitted">
           </div>
           <div class="test">
             <label class="label" for="country">Pays*</label>
-            <input type="text" id="country" v-model="form.country" required>
+            <input type="text" id="country" v-model="form.country" required :disabled="submitted">
           </div>
         </div>
+        
         <div class="haut">
           <div class="test">
             <label class="label" for="postalCode">Code postal*</label>
-            <input type="text" id="postalCode" v-model="form.postalCode" required>
+            <input type="text" id="postalCode" v-model="form.postalCode" required :disabled="submitted">
           </div>
           <div class="test">
             <label class="label" for="city">Ville*</label>
-            <input type="text" id="city" v-model="form.city" required>
+            <input type="text" id="city" v-model="form.city" required :disabled="submitted">
           </div>
         </div>
+        
         <div class="haut">
           <div class="test">
             <label class="label" for="personalWebPage">Page web personnelle</label>
-            <input type="url" id="personalWebPage" v-model="form.personalWebPage">
+            <input type="url" id="personalWebPage" v-model="form.personalWebPage" :disabled="submitted">
           </div>
           <div class="test">
             <label class="label" for="institutionWebPage">Page web institution</label>
-            <input type="url" id="institutionWebPage" v-model="form.institutionWebPage">
+            <input type="url" id="institutionWebPage" v-model="form.institutionWebPage" :disabled="submitted">
           </div>
         </div>
       </section>
@@ -73,15 +76,15 @@
       <section class="section">
         <h2>Quelle inscription souhaitez-vous ?</h2>
         <div>
-          <input type="radio" id="student" value="student" v-model="form.registrationType">
+          <input type="radio" id="student" value="student" v-model="form.registrationType" :disabled="submitted">
           <label for="student">Étudiant (150 EUR)</label>
         </div>
         <div>
-          <input type="radio" id="academic" value="academic" v-model="form.registrationType">
+          <input type="radio" id="academic" value="academic" v-model="form.registrationType" :disabled="submitted">
           <label for="academic">Académique (200 EUR)</label>
         </div>
         <div>
-          <input type="radio" id="enterprise" value="enterprise" v-model="form.registrationType">
+          <input type="radio" id="enterprise" value="enterprise" v-model="form.registrationType" :disabled="submitted">
           <label for="enterprise">Entreprise (300 EUR)</label>
         </div>
       </section>
@@ -90,20 +93,42 @@
       <section class="section">
         <h2>Quel hébergement souhaitez-vous ?</h2>
         <div>
-          <input type="radio" id="withReservation" value="withReservation" v-model="form.accommodation">
+          <input type="radio" id="withReservation" value="withReservation" v-model="form.accommodation" :disabled="submitted">
           <label for="withReservation">Avec réservation (150 EUR)</label>
         </div>
         <div>
-          <input type="radio" id="withoutReservation" value="withoutReservation" v-model="form.accommodation">
+          <input type="radio" id="withoutReservation" value="withoutReservation" v-model="form.accommodation" :disabled="submitted">
           <label for="withoutReservation">Sans réservation (0 EUR)</label>
         </div>
       </section>
-<div class="divbouton">
-      <button class="bouton" type="submit">Pré-valider</button>
-    </div>
+
+      <!-- Submission Button -->
+      <div class="divbouton">
+        <button class="bouton" type="submit" :disabled="submitted">Pré-valider</button>
+      </div>
+      
     </form>
+
+    <!-- Recap Section -->
+    <div v-if="submitted" class="recap">
+      <h3>Récapitulatif de l'inscription</h3>
+      <p>Prénom: {{ form.firstName }}</p>
+      <p>Nom: {{ form.lastName }}</p>
+      <p>Email: {{ form.email }}</p>
+      <p>Sexe: {{ form.gender }}</p>
+      <p>Institution: {{ form.institution }}</p>
+      <p>Adresse: {{ form.address }}</p>
+      <p>Pays: {{ form.country }}</p>
+      <p>Code postal: {{ form.postalCode }}</p>
+      <p>Ville: {{ form.city }}</p>
+      <p>Page web personnelle: {{ form.personalWebPage }}</p>
+      <p>Page web institution: {{ form.institutionWebPage }}</p>
+      <p>Type d'inscription: {{ form.registrationType }}</p>
+      <p>Hébergement: {{ form.accommodation }}</p>
+    </div>
   </div>
 </template>
+
 
 <script>
 export default {
@@ -121,24 +146,16 @@ export default {
         postalCode: '86961',
         personalWebPage: 'https://mickeal-baron.fr',
         institutionWebPage: 'https://wwwlias-lab.fr.members/michealbaron',
-        registrationType: '', // 'student', 'academic', ou 'enterprise'
-        accommodation: '' // 'withReservation' ou 'withoutReservation'
-      }
-    }
+        registrationType: 'academic', // 'student', 'academic', ou 'enterprise'
+        accommodation: 'withReservation' // 'withReservation' ou 'withoutReservation'
+      },
+      submitted: false
+    };
   },
   methods: {
     submitForm() {
-      // Traitement des données du formulaire
-      // Vous pouvez ici valider les données ou les envoyer à un serveur
-      console.log('Formulaire soumis:', this.form);
-
-      // Exemple d'envoi des données avec axios (à installer séparément)
-      // axios.post('URL_DU_SERVEUR', this.form)
-      //   .then(response => {
-      //     // Gérer la</div>
-      //   .catch(error => {
-      //     // Gérer les erreurs
-      //   });
+      this.submitted = true;
+      // Ici, vous pourriez également ajouter la logique pour envoyer les données du formulaire à un serveur
     }
   }
 }
@@ -285,4 +302,21 @@ export default {
     padding: 15px;
   }
 }
+ /* Griser les inputs quand le formulaire est soumis */
+ input:disabled, 
+ button:disabled,
+ select:disabled,
+ radio:disabled {
+   background-color: #ececec;
+   cursor: not-allowed;
+ }
+
+ /* Style pour la fenêtre récapitulative */
+ .recap {
+   margin-top: 20px;
+   padding: 10px;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   background-color: #f9f9f9;
+ }
 </style>
