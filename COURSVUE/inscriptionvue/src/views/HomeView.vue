@@ -2,6 +2,7 @@
   <div class="registration-form">
     <h1>Inscription pour #MaConf2020</h1>
     <form @submit.prevent="submitForm">
+      
       <!-- Personal Information -->
       <section>
         <h2>Qui êtes vous ?</h2>
@@ -24,11 +25,11 @@
         <label class="label">Sexe</label>
         <div class="sexe">
           <div>
-            <input type="radio" id="male" value="male" v-model="form.gender" :disabled="submitted">
+            <input type="radio" id="mae" value="M." v-model="form.gender" :disabled="submitted">
             <label for="male">Je suis un homme</label>
           </div>
           <div>
-            <input type="radio" id="female" value="female" v-model="form.gender" :disabled="submitted">
+            <input type="radio" id="female" value="Mme." v-model="form.gender" :disabled="submitted">
             <label for="female">Je suis une femme</label>
           </div>
         </div>
@@ -72,19 +73,19 @@
         </div>
       </section>
 
-      <!-- Registration Type -->
-      <section class="section">
+       <!-- Registration Type -->
+       <section class="section">
         <h2>Quelle inscription souhaitez-vous ?</h2>
         <div>
-          <input type="radio" id="student" value="student" v-model="form.registrationType" :disabled="submitted">
+          <input type="radio" id="student" value="Etudiant" v-model="form.registrationType" :disabled="submitted">
           <label for="student">Étudiant (150 EUR)</label>
         </div>
         <div>
-          <input type="radio" id="academic" value="academic" v-model="form.registrationType" :disabled="submitted">
+          <input type="radio" id="academic" value="Académique" v-model="form.registrationType" :disabled="submitted">
           <label for="academic">Académique (200 EUR)</label>
         </div>
         <div>
-          <input type="radio" id="enterprise" value="enterprise" v-model="form.registrationType" :disabled="submitted">
+          <input type="radio" id="enterprise" value="Enterprise" v-model="form.registrationType" :disabled="submitted">
           <label for="enterprise">Entreprise (300 EUR)</label>
         </div>
       </section>
@@ -93,11 +94,11 @@
       <section class="section">
         <h2>Quel hébergement souhaitez-vous ?</h2>
         <div>
-          <input type="radio" id="withReservation" value="withReservation" v-model="form.accommodation" :disabled="submitted">
+          <input type="radio" id="withReservation" value="Avec réservation" v-model="form.accommodation" :disabled="submitted">
           <label for="withReservation">Avec réservation (150 EUR)</label>
         </div>
         <div>
-          <input type="radio" id="withoutReservation" value="withoutReservation" v-model="form.accommodation" :disabled="submitted">
+          <input type="radio" id="withoutReservation" value="Sans réservation" v-model="form.accommodation" :disabled="submitted">
           <label for="withoutReservation">Sans réservation (0 EUR)</label>
         </div>
       </section>
@@ -111,24 +112,30 @@
 
     <!-- Recap Section -->
     <div v-if="submitted" class="recap">
-      <h3>Récapitulatif de l'inscription</h3>
-      <p>Prénom: {{ form.firstName }}</p>
-      <p>Nom: {{ form.lastName }}</p>
-      <p>Email: {{ form.email }}</p>
-      <p>Sexe: {{ form.gender }}</p>
-      <p>Institution: {{ form.institution }}</p>
-      <p>Adresse: {{ form.address }}</p>
-      <p>Pays: {{ form.country }}</p>
-      <p>Code postal: {{ form.postalCode }}</p>
-      <p>Ville: {{ form.city }}</p>
-      <p>Page web personnelle: {{ form.personalWebPage }}</p>
-      <p>Page web institution: {{ form.institutionWebPage }}</p>
-      <p>Type d'inscription: {{ form.registrationType }}</p>
-      <p>Hébergement: {{ form.accommodation }}</p>
+      <div class="recapitulatif">
+        <span>Récapitulatif de l'inscription</span>
+        <section>
+          <p>
+            Bonjour {{ form.gender }} {{ form.firstName }} {{ form.lastName }}, vous avez procédé à une inscription pour la conférence. <br>
+            Le détail de votre enregistrement est le suivant : <br>
+            <ul>
+              <li>{{ form.registrationType }}</li>
+              <li>{{ form.accommodation }}</li>
+            </ul>
+            Le montant total est de {{ calculateTotalAmount() }} EUR.<br>
+            Un email vous sera envoyé prochainement à cette adresse {{ form.email }} pour la mise en paiement de votre inscription. <br>
+            Merci de consulter votre messagerie et de procéder au règlement de votre inscription.<br>
+            En vous remerciant de votre inscription, à très bientôt à la conférence.<br> 
+          </p>
+          <div>
+            <button type="button">Confirmer</button>
+            <button type="button">Modifier les données</button>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -138,7 +145,7 @@ export default {
         firstName: 'Mickeal',
         lastName: 'BARON',
         email: 'baron@ensma.fr',
-        gender: 'male', // Par défaut, on peut mettre 'male' ou 'female' ou laisser vide
+        gender: 'M.', // Par défaut, on peut mettre 'male' ou 'female' ou laisser vide
         institution: 'ISAE-ENSMA',
         address: 'Téléport 2 -1 avenue Clément Ader, BP 40109',
         country: 'France', // On peut pré-remplir avec 'France' si c'est le pays par défaut
@@ -146,8 +153,8 @@ export default {
         postalCode: '86961',
         personalWebPage: 'https://mickeal-baron.fr',
         institutionWebPage: 'https://wwwlias-lab.fr.members/michealbaron',
-        registrationType: 'academic', // 'student', 'academic', ou 'enterprise'
-        accommodation: 'withReservation' // 'withReservation' ou 'withoutReservation'
+        registrationType: 'Académique', // 'student', 'academic', ou 'enterprise'
+        accommodation: 'Avec réservation' // 'withReservation' ou 'withoutReservation'
       },
       submitted: false
     };
@@ -156,10 +163,36 @@ export default {
     submitForm() {
       this.submitted = true;
       // Ici, vous pourriez également ajouter la logique pour envoyer les données du formulaire à un serveur
+    },
+    calculateTotalAmount() {
+      let registrationFee = 0;
+      let accommodationFee = 0;
+
+      // Calcul du montant d'inscription en fonction du type d'inscription sélectionné
+      switch (this.form.registrationType) {
+        case 'Etudiant':
+          registrationFee = 150;
+          break;
+        case 'Académique':
+          registrationFee = 200;
+          break;
+        case 'Enterprise':
+          registrationFee = 300;
+          break;
+      }
+
+      // Calcul du montant d'hébergement en fonction de l'option sélectionnée
+      if (this.form.accommodation === 'Avec réservation') {
+        accommodationFee = 150;
+      }
+
+      // Calcul du montant total
+      return registrationFee + accommodationFee;
     }
   }
 }
 </script>
+
 
 
 <style scoped>
@@ -319,4 +352,8 @@ export default {
    border-radius: 4px;
    background-color: #f9f9f9;
  }
+ .error-message {
+  color: red;
+  font-size: 14px;
+}
 </style>
