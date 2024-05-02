@@ -105,6 +105,27 @@ Exemple :
 </script>
 ```
 
+## v-model 
+Le v-model sert à lié une variable vue au contenu d'un élément HTML. 
+Cela signifie que si le contenu change dans la variable de vue, change aussi le contenu du champ et vice versa.
+```js
+<template>
+    <div>
+        <input v-model="Valeur"> 
+    </div>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                Valeur: ''
+            }
+        }
+    }
+</script>
+```
+
 ## v-on 
 Le v-on sert à faire une écoute d'un événement sur un élément HTML. Il est utilisé pour attacher des méthodes aux événements natifs de l'élément comme click ou mouseover.
 Le v-on à un raccourci qui est @ il peux etre utiliser de la meme manière.

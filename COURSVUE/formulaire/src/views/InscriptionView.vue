@@ -129,7 +129,7 @@
             En vous remerciant de votre inscription, à très bientôt à la conférence.<br> 
           </p>
           <div>
-            <button type="button">Confirmer</button>
+            <button type="button" @click="Confirm()">Confirmer</button>
             <button type="button" @click="ButtonSubmit(false)">Modifier les données</button>
           </div>
         </section>
@@ -140,6 +140,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
   name: 'InscriptionView',
@@ -167,6 +168,12 @@ export default {
     }
   },
   methods: {
+    async Confirm () {
+      await axios.post('http://localhost:5000/createuser', {
+        firstname: this.Utilisateur.FirstName,
+        lastname: this.Utilisateur.LastName
+      })
+    },
     ButtonSubmit(Value) {
       if (Value == true) {
         // Validation des champs obligatoires
