@@ -1,6 +1,11 @@
 <template>
     <div>
         <router-link to="/clickme"><br>Aller à la page ClickMe</router-link>
+        <router-link to="/paravue"><br>Aller à la page ParaVue</router-link>
+        <router-link to="/alouettevue"><br>Aller à la page AlouetteVue</router-link>
+        <router-link to="/unixvue"><br>Aller à la page UnixVue</router-link>
+
+
 
         <table>
             <thead>
