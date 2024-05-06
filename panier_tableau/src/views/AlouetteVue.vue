@@ -1,5 +1,7 @@
 <template>
+  
     <div>
+      <router-link to="/"><br>Retourner à l'accueil<br></router-link>
       <p>{{ fullText }}</p>
       <p>Que lui plumer ? <input type="text" v-model="inputText" @keyup.enter="addText"><button @click="addText">OK</button></p>
       

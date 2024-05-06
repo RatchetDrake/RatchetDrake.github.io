@@ -4,7 +4,8 @@
         <router-link to="/paravue"><br>Aller à la page ParaVue</router-link>
         <router-link to="/alouettevue"><br>Aller à la page AlouetteVue</router-link>
         <router-link to="/unixvue"><br>Aller à la page UnixVue</router-link>
-
+        <router-link to="/titrevue"><br>Aller à la page TitreVue</router-link>
+        <router-link to="/interfacevue"><br>Aller à la page InterfaceVue</router-link>
 
 
         <table>

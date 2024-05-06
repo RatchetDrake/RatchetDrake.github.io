@@ -6,6 +6,10 @@ import ClickMe from '@/views/ClickMe.vue'
 import ParaVue from '@/views/ParaVue.vue'
 import AlouetteVue from '@/views/AlouetteVue.vue'
 import UnixVue from '@/views/UnixVue.vue'
+import TitreVue from '@/views/TitreVue.vue'
+import InterfaceVue from '@/views/InterfaceVue.vue'
+
+
 
 
 Vue.use(VueRouter)
@@ -36,6 +40,18 @@ const routes = [
     name: 'unixvue',
     component: UnixVue
   },
+  {
+    path: '/titrevue',
+    name: 'titrevue',
+    component: TitreVue
+  },  
+  {
+    path: '/interfacevue',
+    name: 'interfacevue',
+    component: InterfaceVue
+  },  
+  
+  
   
   
 ]

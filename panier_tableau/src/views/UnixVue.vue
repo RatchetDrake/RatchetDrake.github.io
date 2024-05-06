@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div> <router-link to="/"><br>Retourner à l'accueil<br></router-link>
+
       <label>Code: <input type="number" v-model="code" min="0" max="7"></label><br>
   
       <label>Read <input type="checkbox" v-model="permissions.read"></label>
